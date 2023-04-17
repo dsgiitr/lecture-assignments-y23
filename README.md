@@ -1,7 +1,7 @@
 # DIRECTIONS
 - Fork the repository and clone it locally on your system
 - Make a folder of your name in the repo
-- Inside your nane folder add another folder of the assignment along with your name eg. 'MATH-1_<your_name>' and add all your .ipynb, .py , etc files.
+- Inside your name folder add another folder of the assignment along with your name eg. 'MATH-1_<your_name>' and add all your .ipynb, .py , etc files.
 - Create a pull request on the original repository.
 # Assignments: Batch Y23
 Resources are provided in the resources folder in the repo
