@@ -9,7 +9,7 @@ The basic lecture provided some foundation on git and linux concepts and so we w
 4. Also you need to setup GPG and SSH keys for your system on GitHub (read the doc and ask for doubts). These are used for setting up `git clone` using ssh and also signing and verification of commits.
 
 You also need to create a documentation for the first two tasks with the commands and their outputs.
-Make the submissions in the same folder by creating a directory woth name `<your-name>` and try to maintain a PR of the submission as soon as possible. 
+Make the submissions in the same folder by creating a directory with name `<your-name>` and try to maintain a PR of the submission as soon as possible. 
 The deadline for submission is 30th April (most tasks can be completed within a day ;-))
 
 P.S. You are encouraged to discuss and help each other in the process, preferably having a thread of discussion within slack. No plagiarism of each other's work will be tolerated and we may verify your submissions by asking you relevant questions about the same.
