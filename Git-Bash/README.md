@@ -7,10 +7,12 @@ Solve all the questions of first two lectures of missing semester  as provided i
 ## Problem 2
 Practise first 15 labs of [Bandit](https://overthewire.org/wargames/bandit/). Do them after the missing semester and on your own and ask for help if stuck.
 ## Problem 3
+Complete the first 30 labs of [Git Immersion](http://gitimmersion.com) and record your outputs in a README or text file.
+## Problem 4
 Write a bash script to automate any task in linux or macOS or WSL. It can be as basic as changing the extension of image from png to jpg when put in a particular folder.
 The best thing you can do is to write a basic training script in python and automate its training using variables and conditionals in Bash(read more about the same on the internet).
 (** Bonus for more creativity or extensive scripts)
-## Problem 4
+## Problem 5
 Also you need to setup GPG and SSH keys for your system on GitHub (read the doc and ask for doubts). These are used for setting up `git clone` using ssh and also signing and verification of commits.
 
 ## General Instructions
