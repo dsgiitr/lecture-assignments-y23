@@ -72,7 +72,7 @@ Level 0
 ssh bandit0@bandit.labs.overthewire.org -p 2220
 2. password : bandit0
 
-Level 0 -> 1
+### Level 0 -> 1
 
 1. ls
 2. cat readme
@@ -81,8 +81,114 @@ Level 0 -> 1
 ssh bandit1@bandit.labs.overthewire.org -p 2220
 5. password : same as copied from cat readme
 
-Level 1 -> 2
+### Level 1 -> 2
 
 1. Read about dashed filename
 2. Used "cat < -" to open it and get pw.
+3. Logged out and loggin in again (same process as before)
+
+### Level 2 -> 3
+
+1. Used cat 'spaces in this filename'
+2. Logged out and loggin in again (same process as before)
+
+### Level 3 -> 4
+
+1. cd inhere and used ls -al to see hidden file
+2. Used cat .hidden 
+3. Logged out and loggin in again (same process as before)
+
+### Level 4 -> 5
+
+1. cat each file. -file07 has the pw, OR 
+1. use ls to see filenames.
+2. use file -- -file* to see the file type of each file, only -file07 has ASCII. Also, -- makes sure file doesn't confuse the filenames for an option
+3. Logged out and loggin in again (same process as before)
+
+### Level 5 -> 6
+
+1. Not sure about how to get human readable file but using
+find . -type f -size 1033c ! -executable g
+gave only one file path. Using cat, gave pw.
+2. Logged out and loggin in again (same process as before)
+
+### Level 6 -> 7
+
+1. Tried -
+cd /
+find . -type f -size 33c -user bandit7 -group bandit6 2>/dev/null
+2. Got a filepath, used cat to obtain it
+3. Logged out and loggin in again (same process as before)
+
+### Level 7 -> 8
+
+1. Ran cat data.txt | grep millionth
+2. Logged out and loggin in again (same process as before)
+
+### Level 8 -> 9
+
+1. uniq only checks or duplicates in adjacent lines
+2. Ran cat data.txt | sort | uniq -u data.txt
+3. Logged out and loggin in again (same process as before)
+
+### Level 9 -> 10
+
+1. using strings to get human readable strings and piping that to grep to find string with "=" characters preceding it-
+strings data.txt | grep ======
+2. Logged out and loggin in again (same process as before)
+
+### Level 10 -> 11
+
+1. base64 -d data.txt
+2. Logged out and loggin in again (same process as before)
+
+### Level 11 -> 12
+
+1. using translate (tr) -
+cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+2. Logged out and loggin in again (same process as before)
+
+### Level 12 -> 13
+
+1. Ran the following -
+cd /
+mkdir /tmp/myname123
+cp data.txt /tmp/myname123
+cd /tmp/myname123
+cat data.txt
+xxd -r data.txt > data01
+file data01
+gzip -d -c data01 > data02
+file data02
+bzip2 -d -c data02 > data03
+file data03
+gzip -d -c data03 > data04
+file data04
+tar -xf data04
+cat data04
+file data5.bin
+tar -xf data5.bin
+cat data5.bin
+file data6.bin
+bzip2 -d -c data6.bin >data07
+file data07
+tar -xf data07
+cat data07
+file data8.bin
+gzip -d -c data8.bin > data09
+file data09
+cat data09
+
+Basically we had a highly compressed file which had to be decompressed several times, storing into a new file after decompressing and checking other files it contained, then decompressing those too until we got an ASCII text file.
+
+2. Logged out and loggin in again (same process as before)
+
+### Level 13 -> 14
+
+
+### Level 14 -> 15
+
+
+
+
 
