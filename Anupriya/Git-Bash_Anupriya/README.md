@@ -83,3 +83,5 @@ ssh bandit1@bandit.labs.overthewire.org -p 2220
 
 Level 1 -> 2
 
+1. Read about dashed filename
+2. Used "cat < -" to open it
