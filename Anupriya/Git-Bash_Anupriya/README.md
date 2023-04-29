@@ -51,3 +51,16 @@ error after 100 runs
 Something went wrong
 The error was using magic numbers
 
+4. We first created a bunch of html files in working directory -
+touch sample{1,2,3,4,5}.html 
+as well as a newzip.tar.gz file.
+Then ran this command to check files-
+find . -type f -name "*.html" 
+The output is a list of html files seperated by a new line.
+Final command to create zip -
+find . -type f -name "*.html" | xargs -d '\n' tar -czf newzip.tar.gz
+Now ls contains the newzip.tar.gz with the html files.
+
+5. We know that ls has  flag -t which gives the lists files by newest first.
+So this command -
+find . -type f | ls -t
