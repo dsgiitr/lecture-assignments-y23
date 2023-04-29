@@ -1,6 +1,10 @@
 ## Problem 1
 ### Shell
-1. Already had bash installed. Ran echo $SHELL and it said /bin/bash. 
+1. Already had bash installed. Ran 
+'''
+echo $SHELL
+'''
+and it said /bin/bash. 
 2. Changed the directory to /tmp, created a new directory (using mkdir) called "missing".
 3. Ran "man touch". Read through.
 4. Changed directory to missing. Ran "touch semester". File format wasn't specified.
@@ -8,7 +12,15 @@
 6. Tried executing semester as asked. Gives Permission denied error. Checked permissions using "ls -l" and here "x" is missing hence execution is disabled for user.
 7. sh <filename> works cause we're "explicitly" telling the shell to use the sh command instead of letting the os execute the file. When the os tried to execute the file, it lacked the permission to do so but the sh command doesn't go to the os, rather runs the command directly.
 8. Had already looked up the chmod commad while exploring shell myself. It is used to change the permissions of a file either for the user or the group and can be set to read (r), write(w) or execute(x) or a combination. 
-9. By using "chmod +x semester", the file was executed succesfully. The shell knew what to do because of the "#!/bin/sh" line in the file. The shebang essentially translated the file to "/bin/sh/curl --head --silent <URL>" so we're explicitly stating to use sh command again. 
+9. By using "chmod +x semester", the file was executed succesfully. The shell knew what to do because of the 
+'''
+#!/bin/sh"
+'''
+line in the file. The shebang essentially translated the file to 
+'''
+/bin/sh/curl --head --silent <URL>
+'''
+so we're explicitly stating to use sh command again. 
 10. Created a txt file using sudo touch in home directory, switched back to missing directory and ran "./semester | grep -i last-modiified |cut --delimiter=':' -f2- | sudo tee /home/last-modified.txt". This worked and using "cat last-modified.txt" in /home gave desired output.
 Using > gave permission denied error despite changing permissions. 
 Using sudo su didn't work, probably because I can't figure out what the syntax should be.
