@@ -1,5 +1,5 @@
-##Problem 1
-###Shell
+## Problem 1
+### Shell
 1. Already had bash installed. Ran echo $SHELL and it said /bin/bash. 
 2. Changed the directory to /tmp, created a new directory (using mkdir) called "missing".
 3. Ran "man touch". Read through.
@@ -15,7 +15,7 @@ Using sudo su didn't work, probably because I can't figure out what the syntax s
 11. After some exploration, in class, there's power_supply which contains BAT1 which further has several files like power_now, status and capacity. cat capacity returned the battery percentage.
 Couldn't find where temperature is.
 
-###Shell tools and scripting
+### Shell tools and scripting
 1. ls --all --color --human-readable -l
 where --all lists literally every entry, --color is for colorizing which is by default 'always', --human-readable for sizes and -l for long listing format.
 2. touch marco.sh (to create a new .sh file)
@@ -44,7 +44,7 @@ cat output.txt
 
 and make this executable too. 
 We run source problem.sh to check what's happening. 
-then we run debugproblem.sh. So, here we are putting count as 0. Then we run while loop, as long as $? is equal to 0, so n!=42, we increment count and store the output and error using &> to output.txt. Once n=42, we find $?=1 and while loop ends with the value of count as the number of successful loops i.e., till n was not 42. Output contains the output from problem.sh in that last run.
+then we run debugproblem.sh. So, here we are putting count as 0. Then we run while loop, as long as "$?" is equal to 0, so n!=42, we increment count and store the output and error using &> to output.txt. Once n=42, we find $?=1 and while loop ends with the value of count as the number of successful loops i.e., till n was not 42. Output contains the output from problem.sh in that last run.
 
 We get different outputs each time like -
 error after 100 runs
