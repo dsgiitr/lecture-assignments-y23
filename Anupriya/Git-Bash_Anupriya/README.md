@@ -64,3 +64,25 @@ Now ls contains the newzip.tar.gz with the html files.
 5. We know that ls has  flag -t which gives the lists files by newest first.
 So this command -
 find . -type f | ls -t
+
+## Problem 2
+Level 0
+
+1. Ran the following command after searching -
+ssh bandit0@bandit.labs.overthewire.org -p 2220
+2. password : bandit0
+
+Level 0 -> 1
+
+1. ls
+2. cat readme
+3. Logged out using Ctrl+d
+4. Logged in again using -
+ssh bandit1@bandit.labs.overthewire.org -p 2220
+5. password : same as copied from cat readme
+
+Level 1 -> 2
+
+1. Read about dashed filename
+2. Used "cat < -" to open it and get pw.
+
