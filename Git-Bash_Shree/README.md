@@ -29,4 +29,21 @@ easily in the printed text
 
 Level 10: base64 -d data.txt
 
-Level 11: 
+Level 11: cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+
+Level 12:
+- used xxd to decompress and used file <filename> at each stage to check the file output type
+- used gzip to decompress
+- used bzip2
+- used gzip
+- used tar -xvf 4 times
+- gzip
+
+Level 13:
+saved key as a file and used chmod 600 to change its permissions then logged in
+
+Level 14:
+nc localhost 30000
+
+Level 15:
+openssl s_client -connect localhost:30001
