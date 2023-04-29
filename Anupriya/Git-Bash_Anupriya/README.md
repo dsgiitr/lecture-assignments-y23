@@ -15,7 +15,7 @@ Using sudo su didn't work, probably because I can't figure out what the syntax s
 11. After some exploration, in class, there's power_supply which contains BAT1 which further has several files like power_now, status and capacity. cat capacity returned the battery percentage.
 Couldn't find where temperature is.
 
-###Shell tools and scripting
+### Shell tools and scripting
 1. ls --all --color --human-readable -l
 where --all lists literally every entry, --color is for colorizing which is by default 'always', --human-readable for sizes and -l for long listing format.
 2. touch marco.sh (to create a new .sh file)
