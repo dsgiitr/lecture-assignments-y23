@@ -185,9 +185,18 @@ Basically we had a highly compressed file which had to be decompressed several t
 
 ### Level 13 -> 14
 
+1. ls 
+We see a sshkey.private
+2. using command specific or using private key to login on port 2220-
+ssh -i bandit14@localhost -p 2220
 
 ### Level 14 -> 15
 
+1. The pw is in /etc/bandit_pass/bandit14, we cat it.
+2. using telnet and entering copied password when prompted-
+telnet localhost 30000
+3. Logged into level 15 using the pw obtained from above and command below, worked!
+ssh bandit15@bandit.labs.overthewire.org -p 2220
 
 
 
