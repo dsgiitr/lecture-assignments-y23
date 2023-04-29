@@ -1,5 +1,5 @@
-##Problem 1
-###Shell
+## Problem 1
+### Shell
 1. Already had bash installed. Ran echo $SHELL and it said /bin/bash. 
 2. Changed the directory to /tmp, created a new directory (using mkdir) called "missing".
 3. Ran "man touch". Read through.
@@ -44,7 +44,7 @@ cat output.txt
 
 and make this executable too. 
 We run source problem.sh to check what's happening. 
-then we run debugproblem.sh. So, here we are putting count as 0. Then we run while loop, as long as $? is equal to 0, so n!=42, we increment count and store the output and error using &> to output.txt. Once n=42, we find $?=1 and while loop ends with the value of count as the number of successful loops i.e., till n was not 42. Output contains the output from problem.sh in that last run.
+then we run debugproblem.sh. So, here we are putting count as 0. Then we run while loop, as long as "$?" is equal to 0, so n!=42, we increment count and store the output and error using &> to output.txt. Once n=42, we find $?=1 and while loop ends with the value of count as the number of successful loops i.e., till n was not 42. Output contains the output from problem.sh in that last run.
 
 We get different outputs each time like -
 error after 100 runs
@@ -64,3 +64,22 @@ Now ls contains the newzip.tar.gz with the html files.
 5. We know that ls has  flag -t which gives the lists files by newest first.
 So this command -
 find . -type f | ls -t
+
+## Problem 2
+Level 0
+
+1. Ran the following command after searching -
+ssh bandit0@bandit.labs.overthewire.org -p 2220
+2. password : bandit0
+
+Level 0 -> 1
+
+1. ls
+2. cat readme
+3. Logged out using Ctrl+d
+4. Logged in again using -
+ssh bandit1@bandit.labs.overthewire.org -p 2220
+5. password : same as copied from cat readme
+
+Level 1 -> 2
+
