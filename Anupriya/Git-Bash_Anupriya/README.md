@@ -378,5 +378,101 @@ Ran our hello.rb program
 ```
 Hello, World!
 ```
+### Lab 23
+1. Using type and dump
+```
+git cat-file -t bfd0bad
+git cat-file -p bfd0bad
+```
+gave the respective outputs
+```
+commit
+```
+and
+```
+tree b7abd6d5f3319f353fd7dff5764ed0bfd0b0a5db
+parent 3f636424846f65f1dc6fc074bb2a377e69d9928b
+author anupriyakkumari <anupriyakkumari@gmail.com> 1682836740 +0530
+committer anupriyakkumari <anupriyakkumari@gmail.com> 1682836740 +0530
+
+new rake
+```
+2. Finding the tree (used the SHA1 hash line from tree line)
+Ran
+```
+git cat-file -p b7abd6d5f3319f353fd7dff5764ed0bfd0b0a5db
+```
+Output-
+```
+100644 blob 28e0e9d6ea7e25f35ec64a43f569b550e8386f90    Rakefile
+040000 tree 35056c512b9c91081c6b833c9f46d790199d9045    lib
+```
+3. Explore on your own
+We can go back to the very first commit by using SHA1 hash references from the latest commit by recursively dumping the parent line SHA1 hash reference so that we keep moving back to previous commits.
+So, if we had the folloowing -
+```
+git hist --max-count=1
+o/p : * bfd0bad 2023-04-30 | new rake (HEAD -> master) [anupriyakkumari]
+```
+We run the following (respective o/p give the enxt SHA1 hash we need)-
+```
+git cat-file -p bfd0bad
+o/p :
+tree b7abd6d5f3319f353fd7dff5764ed0bfd0b0a5db
+parent 3f636424846f65f1dc6fc074bb2a377e69d9928b
+author anupriyakkumari <anupriyakkumari@gmail.com> 1682836740 +0530
+committer anupriyakkumari <anupriyakkumari@gmail.com> 1682836740 +0530
+
+new rake
+```
+
+```
+git cat-file -p 3f636424846f65f1dc6fc074bb2a377e69d9928b
+o/p :
+tree 9e8582f8c5eab88c5904f8a88600b6c733c066c7
+parent c61b6675b0f39305d44930b841f5e56ac3edbdfc
+author anupriyakkumari <anupriyakkumari@gmail.com> 1682836320 +0530
+committer anupriyakkumari <anupriyakkumari@gmail.com> 1682836320 +0530
+
+moved hello.rb to lib
+```
+
+```
+git cat-file -p c61b6675b0f39305d44930b841f5e56ac3edbdfc
+o/p :
+tree 35056c512b9c91081c6b833c9f46d790199d9045
+parent adc23dff2712e1e86a49154ac89ba6359d92388e
+author anupriyakkumari <anupriyakkumari@gmail.com> 1682835895 +0530
+committer anupriyakkumari <anupriyakkumari@gmail.com> 1682835946 +0530
+
+added author and email
+```
+...and so on till we reach the last parent in this tree 
+
+```
+git cat-file -p abb6e61ec056e
+o/p :
+tree 8d745f3be01a812ae9ad6867cc313a8aaad14c87
+author anupriyakkumari <anupriyakkumari@gmail.com> 1682795804 +0530
+committer anupriyakkumari <anupriyakkumari@gmail.com> 1682795804 +0530
+
+First commit
+```
+Now, we can use tree to access the original hello.rb file
+```
+git cat-file -p 8d745f3be
+o/p :
+100644 blob 3fa0d4b98289a95a7cd3a45c9545e622718f8d2b    hello.rb
+```
+
+```
+git cat-file -p 3fa0d4b98289a95a7c
+o/p :
+Hello, World
+```
+
+
+
+
 
 
