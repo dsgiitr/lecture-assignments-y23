@@ -47,3 +47,11 @@ nc localhost 30000
 
 Level 15:
 openssl s_client -connect localhost:30001
+
+# Git immersion
+
+See terminal.html under git_tutorial
+
+# Script automation
+
+Python script has been included
