@@ -6,5 +6,17 @@
 # Assignments: Batch Y23
 Resources are provided in the resources folder in the repo
 ## MATH-1
+Here's the HackMd link for Probability and Statistics.
+
+https://hackmd.io/@AnvK/r1XAh09f3
+
+Make sure you stay prepared before lecture.
+
+Here's a popular dataset for implementing Hypothesis Testing on Kaggle.
+
+https://www.kaggle.com/datasets/ahmedmohameddawoud/ecommerce-ab-testing
+
+Look at the code contributions in the link to get an idea of how its implemented.
+
 ## MATH-2
 ## ML-0
