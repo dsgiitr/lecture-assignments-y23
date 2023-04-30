@@ -472,7 +472,7 @@ Hello, World
 ```
 
 
+## Problem 5
+1. Had set up SSH keys by following documentation when attempted to create the WIP PR, before doing Git-Immersion problems. Added key to Github successfully.
 
-
-
-
+2. Followed steps in documentation to set up GPG key. Added to Github successfully.
