@@ -7,18 +7,38 @@ echo $SHELL
 and it said /bin/bash. 
 
 2. Changed the directory to /tmp, created a new directory (using mkdir) called "missing".
-3. Ran "man touch". Read through.
-5. Changed directory to missing. Ran "touch semester". File format wasn't specified.
+3. Ran 
+```
+man touch
+```
+Read through.
+5. Changed directory to missing. Ran 
+```
+touch semester
+```
+ File format wasn't specified.
 6. Read the link. Single quotes preserves the literal value of every character while double quotes have many restrictions so it's better to use single quotes in this case. The first line is a shebang (starting with #!). Indicates which interpreter to use when executing a script. Here it's the Bourne shell we want to use. Next one is curl (client URL), used to execute files from a server o our terminal. --head fetches headers only and --silent is to disable progress meter. Used echo to add first line using >semester and second line using >>semester to append instead of overwrite.
-7. Tried executing semester as asked. Gives Permission denied error. Checked permissions using "ls -l" and here "x" is missing hence execution is disabled for user.
+7. Tried executing semester as asked. Gives Permission denied error. Checked permissions using 
+```
+ls -l
+```
+ and here "x" is missing hence execution is disabled for user.
 8. sh <filename> works cause we're "explicitly" telling the shell to use the sh command instead of letting the os execute the file. When the os tried to execute the file, it lacked the permission to do so but the sh command doesn't go to the os, rather runs the command directly.
 9. Had already looked up the chmod commad while exploring shell myself. It is used to change the permissions of a file either for the user or the group and can be set to read (r), write(w) or execute(x) or a combination. 
-10. By using "chmod +x semester", the file was executed succesfully. The shell knew what to do because of the "#!/bin/sh" line in the file. The shebang essentially translated the file to "
+10. By using "chmod +x semester", the file was executed succesfully. The shell knew what to do because of the 
+```
+#!/bin/sh
+```
+ line in the file. The shebang essentially translated the file to "
 ```
 /bin/sh/curl --head --silent <URL>
 ```
 so we're explicitly stating to use sh command again. 
-10. Created a txt file using sudo touch in home directory, switched back to missing directory and ran "./semester | grep -i last-modiified |cut --delimiter=':' -f2- | sudo tee /home/last-modified.txt". This worked and using 
+10. Created a txt file using sudo touch in home directory, switched back to missing directory and ran 
+```
+./semester | grep -i last-modiified |cut --delimiter=':' -f2- | sudo tee /home/last-modified.txt
+```
+This worked and using 
 ```
 cat last-modified.txt
 ```
@@ -288,6 +308,7 @@ We see a sshkey.private
     ssh bandit15@bandit.labs.overthewire.org -p 2220
 ```
 
+## Poblem 3
 
-
+Most initial labs were quite simple and the output was as expected.
 
