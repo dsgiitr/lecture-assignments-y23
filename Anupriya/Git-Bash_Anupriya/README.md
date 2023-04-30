@@ -308,7 +308,75 @@ We see a sshkey.private
     ssh bandit15@bandit.labs.overthewire.org -p 2220
 ```
 
-## Poblem 3
+## Problem 3
 
 Most initial labs were quite simple and the output was as expected.
+
+### Lab 11
+Adding aliases -
+```
+cd /home
+find . -type f -name ".gitconfig"
+cd anupriyakkumari
+nano .gitconfig
+```
+Then, added the following to the pre-existing data in file -
+
+```
+[alias]  co = checkout
+ci = commit
+st = status
+br = branch
+hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+type = cat-file -t
+dump = cat-file -p
+```
+Upon checking these aliases, they work
+Ran -
+``` 
+git hist
+```
+Output -
+```
+* adc23df 2023-04-30 | updated all (HEAD -> master) [anupriyakkumari]
+* 34f0f0f 2023-04-30 | updated first change [anupriyakkumari]
+* 16d642e 2023-04-30 | Using ARGV [anupriyakkumari]
+* abb6e61 2023-04-30 | First commit [anupriyakkumari]
+```
+### Lab 17
+```
+git reset --hard v1
+```
+This removed the commits after v1 from the branch.
+Those commits are no longer in the master branch. They'll stay there till the system runs the garbage collection software.
+
+### Lab 18
+```
+git tag -d oops
+```
+This deleted the oops commit and now only the commits before v1 are left.
+
+### Lab 19
+```
+git commit --amend -m "comment"
+```
+This edits the last commit.
+
+### Lab 21
+
+New thing - Rakefile
+```
+touch Rakefile
+nano Rakefile
+```
+Then we added the given code to the rakefile, added and committed the changes.
+Running -
+```
+rake
+```
+Ran our hello.rb program
+```
+Hello, World!
+```
+
 
