@@ -1,7 +1,16 @@
 ## 1.
 ```console
 $ ls --color -t -lh
-
+total 40K
+-rw-rw-r-- 1 parth_badgujar parth_badgujar 4.2K May  1 07:41  error_log
+-rw-rw-r-- 1 parth_badgujar parth_badgujar 1.1K May  1 07:41  all_htmls.zip
+drwxrwxr-x 2 parth_badgujar parth_badgujar 4.0K May  1 07:40  sample_dir
+-rwxrwxr-x 1 parth_badgujar parth_badgujar  254 May  1 07:40  checker
+-rw-rw-r-- 1 parth_badgujar parth_badgujar  986 May  1 07:38  README.md
+-rw-rw-r-- 1 parth_badgujar parth_badgujar    9 May  1 06:51 'this is another file.html'
+-rw-rw-r-- 1 parth_badgujar parth_badgujar   10 May  1 06:51  sample1.html
+-rwxrwxr-x 1 parth_badgujar parth_badgujar  209 Apr 30 15:46  given_script
+-rwxrwxr-x 1 parth_badgujar parth_badgujar   89 Apr 30 15:34  macro.sh
 ```
 ## 2.
 ### macro.sh
