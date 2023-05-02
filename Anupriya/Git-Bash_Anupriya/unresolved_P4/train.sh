@@ -1,6 +1,7 @@
 #!/bin/bash
 #!/bin/env python
 
+#using kaggle datasets download -d aymenkhouja/timeofdaydataset as sample dataset
 # getting api command from kaggle and downloading zip
 echo "Enter Kaggle API command for chosen dataset: "
 read apicommand
