@@ -93,7 +93,7 @@ date -r semester > \home\\last-modified.txt
   find . -type f -name "*.html" > hello.txt
   tar -cvf file.tar -T hello.txt
   or
-  find . -type f -name "*.html" | tar -cvf file.tar
+  find . -type f -name "*.html" | xargs tar -cvf file.tar
 ```  
 #### 5
 ```
