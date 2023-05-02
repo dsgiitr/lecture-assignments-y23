@@ -1,14 +1,17 @@
 #lecture 1
 ##1
 ```(base) somshekharsharma@MacBook-Air Git-Bash_Som % echo $SHELL
-/bin/zsh```
+/bin/zsh
+```
 ##2
-```(base) somshekharsharma@MacBook-Air / % mkdir /tmp/missing```
+```(base) somshekharsharma@MacBook-Air / % mkdir /tmp/missing
+```
 ##4
 ```(base) somshekharsharma@MacBook-Air missing % touch semseter```
 ##5
 ```(base) somshekharsharma@MacBook-Air missing % echo '#!/bin/sh' | tee semester
-(base) somshekharsharma@MacBook-Air missing % echo 'curl --head --silent https://missing.csail.mit.edu' | tee -a semester```
+(base) somshekharsharma@MacBook-Air missing % echo 'curl --head --silent https://missing.csail.mit.edu' | tee -a semester
+```
 
 
 ##6
@@ -37,7 +40,8 @@ x-cache-hits: 1
 x-timer: S1683060489.715143,VS0,VE250
 vary: Accept-Encoding
 x-fastly-request-id: f0adf00e1e6129d3c93d85ef5878a1d4e121b721
-content-length: 8070```
+content-length: 8070
+```
 
 
 ##9
