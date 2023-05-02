@@ -137,7 +137,7 @@ $ cat /etc/bandit_pass/bandit14
 $ telnet localhost 30000
 $ exit
 ```
-### Level 15 -> 16 ()
+### Level 15 -> 16 (JQttfApK4SeyHwDlI9SXGR50qclOAil1)
 ```console
 $ ssh bandit15@bandit.labs.overthewire.org -p 2220
 $ openssl s_client -connect localhost:30001 -ign_eof
