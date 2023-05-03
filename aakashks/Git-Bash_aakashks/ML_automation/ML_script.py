@@ -1,6 +1,5 @@
-import argparse, os
+import argparse
 import pandas as pd
-import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 
 parser = argparse.ArgumentParser()
