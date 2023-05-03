@@ -10,18 +10,19 @@ print("Batch: ",batch, "Epochs: ",epoch_num,"Classes : ",class_num)
 import numpy as np
 import os
 import PIL
-import PIL.Image
+# import PIL.Image32 10
 import tensorflow as tf
 from tensorflow.keras import layers
 
 #setting important parameters and loading the three required datasets
 img_height = 180
 img_width = 180
-data_dir= "/dataset"
+data_dir= "dataset"
 #using bigger dataset for now
-data_dir_new="/dataset"
+data_dir_new="dataset"
 train_ds = tf.keras.utils.image_dataset_from_directory(
-  data_dir_new,  
+  data_dir_new,
+  label_mode='int', 
   validation_split=0.1,
   subset="training",
   seed=123,
@@ -41,7 +42,7 @@ print(class_names)
 #creating test_ds and loading images
 img_height = 180
 img_width = 180
-test_dir= "/dataset"
+test_dir= "dataset"
 test_ds = tf.keras.utils.image_dataset_from_directory(
   test_dir,  
   image_size=(img_height, img_width),
@@ -113,4 +114,4 @@ model41.fit(
 )
 
 #saving model so that we don't have to do the above steps again
-model41.save('/model')
+model41.save('model')
