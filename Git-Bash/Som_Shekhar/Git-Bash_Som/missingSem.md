@@ -32,13 +32,7 @@
 We used single quotes because enclosing characters in single quotes (‘'’) preserves the literal value of each character within the quotes.
 ```
 
-=======
-```
 
-  
-
-  
->>>>>>> e748b905135730e7bbfe89d7fba172930299b4e1
 
 ## 6
 
@@ -97,13 +91,25 @@ x-fastly-request-id: f0adf00e1e6129d3c93d85ef5878a1d4e121b721
 
 content-length: 8070
 
-<<<<<<< HEAD
-
 ```
+
+
 ```
 Because the current user of the terminal does not have executable permissions to this file. However the current user has permssions to use sh command to run the file and the filename is used as an argument of sh command.
 ```
   
+## 8
+
+```
+(base) somshekharsharma@MacBook-Air missing % chmod u+x semester
+
+(base) somshekharsharma@MacBook-Air missing % ls -l
+
+total 8
+
+-rwxr--r--  1 somshekharsharma  wheel  61 May  3 02:16 semester
+```
+
 ## 9
 
 ```
@@ -116,26 +122,6 @@ total 8
 -rwxr--r--  1 somshekharsharma  wheel  61 May  3 02:16 semester
 ```
 
-=======
-```
-
-  
-
-  
-
-## 9
-
-```
-(base) somshekharsharma@MacBook-Air missing % chmod u+x semester
-
-(base) somshekharsharma@MacBook-Air missing % ls -l
-
-total 8
-
--rwxr--r--  1 somshekharsharma  wheel  61 May  3 02:16 semester
-```
-
->>>>>>> e748b905135730e7bbfe89d7fba172930299b4e1
 ```
 (base) somshekharsharma@MacBook-Air missing % ./semester
 
@@ -212,9 +198,7 @@ dint find /sys on macos
 (base) somshekharsharma@MacBook-Air ~ % ls -lath -G  
 ```
 ## 2
-
-=======
-
+```
 access-control-allow-origin: *
 
 etag: "644d0d01-1f86"
@@ -251,20 +235,3 @@ content-length: 8070
 
 ```
 
-  
-
-## 10
-
-```
-(base) somshekharsharma@MacBook-Air missing % ./semester | grep last- >last-modified.txt
-
-(base) somshekharsharma@MacBook-Air missing % cat last-modified.txt
-
-last-modified: Sat, 29 Apr 2023 12:26:41 GMT
-
-```
-
-## 11
-
-dint find /sys on macos
->>>>>>> e748b905135730e7bbfe89d7fba172930299b4e1
