@@ -26,11 +26,11 @@
 (base) somshekharsharma@MacBook-Air missing % echo '#!/bin/sh' | tee semester
 
 (base) somshekharsharma@MacBook-Air missing % echo 'curl --head --silent https://missing.csail.mit.edu' | tee -a semester
+
+
+We used single quotes because enclosing characters in single quotes (‘'’) preserves the literal value of each character within the quotes.
 ```
 
-  
-
-  
 
 ## 6
 
@@ -89,12 +89,12 @@ x-fastly-request-id: f0adf00e1e6129d3c93d85ef5878a1d4e121b721
 
 content-length: 8070
 
+
 ```
-
+```
+Because the current user of the terminal does not have executable permissions to this file. However the current user has permssions to use sh command to run the file and the filename is used as an argument of sh command.
+```
   
-
-  
-
 ## 9
 
 ```
@@ -153,8 +153,10 @@ x-fastly-request-id: b57495d3bbd13d924f9f3ebcb8dd2fd8b2679b69
 content-length: 8070
 
 ```
+```
+It locates the correct interpreter and runs it, passing the filename to the interpreter as input. For example, running a file named “~/scripts/shebang” that starts with Shebang “#!/bin/sh” is functionally equivalent to running the “/bin/sh” “~/scripts/shebang” command
+```
 
-  
 
 ## 10
 
@@ -170,3 +172,14 @@ last-modified: Sat, 29 Apr 2023 12:26:41 GMT
 ## 11
 
 dint find /sys on macos
+
+
+# lecture 2
+
+## 1
+
+```
+(base) somshekharsharma@MacBook-Air ~ % ls -lath -G  
+```
+## 2
+
