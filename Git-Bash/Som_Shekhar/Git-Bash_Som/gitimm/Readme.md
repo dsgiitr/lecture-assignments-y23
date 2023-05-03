@@ -447,8 +447,209 @@ Changes to be committed:
  rename hello.rb => lib/hello.rb (100%)
 ```
 
-## lab 21
+## lab 22
 ```
+(base) somshekharsharma@MacBook-Air hello % ls -C .git
+COMMIT_EDITMSG    config        index        objects
+HEAD        description    info        packed-refs
+ORIG_HEAD    hooks        logs        refs
+(base) somshekharsharma@MacBook-Air hello % ls -C .git/objects
+0e    1d    38    59    92    af    cc    info
+11    21    3e    64    a2    b6    cf    pack
+12    27    49    81    a6    b9    da
+18    28    58    87    ab    c9    fe
+(base) somshekharsharma@MacBook-Air hello % ls -C .git/objects/11
+b345c2fc315b5f7ae6db2e0f6b0570780c20d1
+(base) somshekharsharma@MacBook-Air hello % cat .git/config 
+[core]
+    repositoryformatversion = 0
+    filemode = true
+    bare = false
+    logallrefupdates = true
+    ignorecase = true
+    precomposeunicode = true
+(base) somshekharsharma@MacBook-Air hello % ls .git/refs
+heads    tags
+(base) somshekharsharma@MacBook-Air hello % ls .git/refs/heads
+master
+(base) somshekharsharma@MacBook-Air hello % ls .git/refs/tags 
+v1    v1-beta
+(base) somshekharsharma@MacBook-Air hello % ls .git/refs/tags/v1
+.git/refs/tags/v1
+(base) somshekharsharma@MacBook-Air hello % cat .git/refs/tags/v1
+c946f20bd0d4286cc23ca9de60f4e190595142c7
+```
+
+## lab 23
+```
+(base) somshekharsharma@MacBook-Air hello % git hist --max-count=1
+* feb68af 2023-05-03 | Added a Rakefile (HEAD -> master) [Som Shekhar Sharma]
+(base) somshekharsharma@MacBook-Air hello % git cat-file -t feb68af
+commit
+(base) somshekharsharma@MacBook-Air hello % git cat-file -p feb68af
+tree a67c062e534334e2c955bcf12c2be12ba39d3715
+parent abb027e79ed848e228907db79302e9e5eab369b9
+author Som Shekhar Sharma <sharmathat@gmail.com> 1683104546 +0530
+committer Som Shekhar Sharma <sharmathat@gmail.com> 1683104546 +0530
+
+Added a Rakefile
+(base) somshekharsharma@MacBook-Air hello % git cat-file -p a67c062
+040000 tree 49d36ea50984c849feac1edc8b240f01b63bec1c    lib
+(base) somshekharsharma@MacBook-Air hello % git cat-file -p 49d36e
+100644 blob 28e0e9d6ea7e25f35ec64a43f569b550e8386f90    Rakefile
+100644 blob 3e089a98400de7c0840bf5c992d6f1d188921e28    hello.rb
+(base) somshekharsharma@MacBook-Air hello % git cat-file -p 3e089a9
+# Default is "World"
+#Author : Som shekhar (sharmathat@gmail.com) 
+name = ARGV.first || "World"
+
+puts "Hello, #{name}!"puts "Hello, #{ARGV.first}!"
+
+```
+## lab 24
+```
+(base) somshekharsharma@MacBook-Air hello % git checkout -b greet
+Switched to a new branch 'greet'
+(base) somshekharsharma@MacBook-Air hello % git status
+On branch greet
+nothing to commit, working tree clean
+(base) somshekharsharma@MacBook-Air hello % touch lib/greeter.rb
+(base) somshekharsharma@MacBook-Air hello % vim lib/greeter.rb
+(base) somshekharsharma@MacBook-Air hello % git add lib/greeter.rb
+(base) somshekharsharma@MacBook-Air hello % git commit -m "Added greeter class"
+[greet e90a453] Added greeter class
+ 1 file changed, 8 insertions(+)
+ create mode 100644 lib/greeter.rb
+(base) somshekharsharma@MacBook-Air hello % vim lib/hello.rb
+(base) somshekharsharma@MacBook-Air hello % git add lib/hello.rb  
+(base) somshekharsharma@MacBook-Air hello % git commit -m 
+error: switch `m' requires a value
+(base) somshekharsharma@MacBook-Air hello % git commit -m "Hello uses Greeter"
+[greet 25b5f27] Hello uses Greeter
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+(base) somshekharsharma@MacBook-Air hello % vim ./Rakefile
+
+zsh: suspended  vim ./Rakefile
+(base) somshekharsharma@MacBook-Air hello % vim lib/Rakefile
+
+zsh: suspended  vim lib/Rakefile
+
+```
+
+## lab 25
+```
+(base) somshekharsharma@MacBook-Air hello % git hist --all
+* 4eee0f9 2023-05-03 | updated Rakefile (HEAD -> greet) [Som Shekhar Sharma]
+* 25b5f27 2023-05-03 | Hello uses Greeter [Som Shekhar Sharma]
+* e90a453 2023-05-03 | Added greeter class [Som Shekhar Sharma]
+* feb68af 2023-05-03 | Added a Rakefile (master) [Som Shekhar Sharma]
+* abb027e 2023-05-03 | Moved hello.rb to lib [Som Shekhar Sharma]
+* da71cd5 2023-05-03 | Add an author/email comment [Som Shekhar Sharma]
+* c946f20 2023-05-03 |  added a comment (tag: v1) [Som Shekhar Sharma]
+* 640e5cd 2023-05-03 | Added a deafult value (tag: v1-beta) [Som Shekhar Sharma]
+* 8702b24 2023-05-03 | Using ARGV [Som Shekhar Sharma]
+* 920bd9b 2023-05-03 | first commit [Som Shekhar Sharma]
+(base) somshekharsharma@MacBook-Air hello % git checkout master
+Switched to branch 'master'
+(base) somshekharsharma@MacBook-Air hello % cat lib/hello.rb
+# Default is "World"
+#Author : Som shekhar (sharmathat@gmail.com) 
+name = ARGV.first || "World"
+
+puts "Hello, #{name}!"puts "Hello, #{ARGV.first}!"
+(base) somshekharsharma@MacBook-Air hello % git checkout greet
+Switched to branch 'greet'
+(base) somshekharsharma@MacBook-Air hello % cat lib/hello.rb
+require 'greeter'
+# Default is World 
+name = ARGV.first || "World"
+greeter = Greeter.new(name)
+puts greeter.greet
+
+puts "Hello, #{name}!"puts "Hello, #{ARGV.first}!"
+```
+## lab 26
+```
+(base) somshekharsharma@MacBook-Air hello % git checkout master
+Switched to branch 'master'
+(base) somshekharsharma@MacBook-Air hello % touch README
+(base) somshekharsharma@MacBook-Air hello % vim README 
+(base) somshekharsharma@MacBook-Air hello % git add README 
+(base) somshekharsharma@MacBook-Air hello % git commit -m "Added README"
+[master f48e310] Added README
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README
+ ```
+ ## lab 27
+```
+(base) somshekharsharma@MacBook-Air hello % git hist --all
+* f48e310 2023-05-03 | Added README (HEAD -> master) [Som Shekhar Sharma]
+| * 4eee0f9 2023-05-03 | updated Rakefile (greet) [Som Shekhar Sharma]
+| * 25b5f27 2023-05-03 | Hello uses Greeter [Som Shekhar Sharma]
+| * e90a453 2023-05-03 | Added greeter class [Som Shekhar Sharma]
+|/  
+* feb68af 2023-05-03 | Added a Rakefile [Som Shekhar Sharma]
+* abb027e 2023-05-03 | Moved hello.rb to lib [Som Shekhar Sharma]
+* da71cd5 2023-05-03 | Add an author/email comment [Som Shekhar Sharma]
+* c946f20 2023-05-03 |  added a comment (tag: v1) [Som Shekhar Sharma]
+* 640e5cd 2023-05-03 | Added a deafult value (tag: v1-beta) [Som Shekhar Sharma]
+* 8702b24 2023-05-03 | Using ARGV [Som Shekhar Sharma]
+* 920bd9b 2023-05-03 | first commit [Som Shekhar Sharma]
+```
+## lab 28
+```
+(base) somshekharsharma@MacBook-Air hello % git checkout greet
+Switched to branch 'greet'
+(base) somshekharsharma@MacBook-Air hello % git merge master
+Merge made by the 'ort' strategy.
+ README | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README
+(base) somshekharsharma@MacBook-Air hello % git hist --all
+*   a08b4fe 2023-05-03 | Merge branch 'master' into greet (HEAD -> greet) [Som Shekhar Sharma]
+|\  
+| * f48e310 2023-05-03 | Added README (master) [Som Shekhar Sharma]
+* | 4eee0f9 2023-05-03 | updated Rakefile [Som Shekhar Sharma]
+* | 25b5f27 2023-05-03 | Hello uses Greeter [Som Shekhar Sharma]
+* | e90a453 2023-05-03 | Added greeter class [Som Shekhar Sharma]
+|/  
+* feb68af 2023-05-03 | Added a Rakefile [Som Shekhar Sharma]
+* abb027e 2023-05-03 | Moved hello.rb to lib [Som Shekhar Sharma]
+* da71cd5 2023-05-03 | Add an author/email comment [Som Shekhar Sharma]
+* c946f20 2023-05-03 |  added a comment (tag: v1) [Som Shekhar Sharma]
+* 640e5cd 2023-05-03 | Added a deafult value (tag: v1-beta) [Som Shekhar Sharma]
+* 8702b24 2023-05-03 | Using ARGV [Som Shekhar Sharma]
+* 920bd9b 2023-05-03 | first commit [Som Shekhar Sharma]
+```
+## lab 29
+```
+(base) somshekharsharma@MacBook-Air hello % git checkout master
+Switched to branch 'master'
+(base) somshekharsharma@MacBook-Air hello % vim lib/hello.rb
+(base) somshekharsharma@MacBook-Air hello % git add lib/hello.rb
+(base) somshekharsharma@MacBook-Air hello % git commit -m "Made interactive"
+[master 9c30b64] Made interactive
+ 1 file changed, 3 insertions(+), 4 deletions(-)
+(base) somshekharsharma@MacBook-Air hello % git hist --all
+* 9c30b64 2023-05-03 | Made interactive (HEAD -> master) [Som Shekhar Sharma]
+| *   a08b4fe 2023-05-03 | Merge branch 'master' into greet (greet) [Som Shekhar Sharma]
+| |\  
+| |/  
+|/|   
+* | f48e310 2023-05-03 | Added README [Som Shekhar Sharma]
+| * 4eee0f9 2023-05-03 | updated Rakefile [Som Shekhar Sharma]
+| * 25b5f27 2023-05-03 | Hello uses Greeter [Som Shekhar Sharma]
+| * e90a453 2023-05-03 | Added greeter class [Som Shekhar Sharma]
+|/  
+* feb68af 2023-05-03 | Added a Rakefile [Som Shekhar Sharma]
+* abb027e 2023-05-03 | Moved hello.rb to lib [Som Shekhar Sharma]
+* da71cd5 2023-05-03 | Add an author/email comment [Som Shekhar Sharma]
+* c946f20 2023-05-03 |  added a comment (tag: v1) [Som Shekhar Sharma]
+* 640e5cd 2023-05-03 | Added a deafult value (tag: v1-beta) [Som Shekhar Sharma]
+* 8702b24 2023-05-03 | Using ARGV [Som Shekhar Sharma]
+* 920bd9b 2023-05-03 | first commit [Som Shekhar Sharma]
+```
+
 
 
 
