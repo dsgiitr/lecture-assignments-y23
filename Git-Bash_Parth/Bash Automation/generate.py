@@ -3,7 +3,7 @@ import torch.nn as nn
 import torch.nn.functional as f
 import sys
 
-text = open('dataset/shakespeare.txt').read()
+text = open('dataset/file.txt').read()
 chars = sorted(list(set(text)))
 config_dict = eval(open('curr_run','r').read())
 device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
