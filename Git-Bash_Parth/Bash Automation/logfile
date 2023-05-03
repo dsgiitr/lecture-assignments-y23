@@ -1,0 +1,19 @@
+Script started, output log file is 'output.txt'.
+[?2004h]0;parth_badgujar@Parth: ~/Desktop/DSG Assignment/Problem 4[01;32mparth_badgujar@Parth[00m:[01;34m~/Desktop/DSG Assignment/Problem 4[00m$ 
+[?2004l[?2004h]0;parth_badgujar@Parth: ~/Desktop/DSG Assignment/Problem 4[01;32mparth_badgujar@Parth[00m:[01;34m~/Desktop/DSG Assignment/Problem 4[00m$ jupyter notebook cd Desktop/Jupyter\ Notebooks/[13Pjupyter notebook [Ksh script.sh 
+[?2004lEnter the dataset to train on : 
+mnist
+
+[?2004h]0;parth_badgujar@Parth: ~/Desktop/DSG Assignment/Problem 4[01;32mparth_badgujar@Parth[00m:[01;34m~/Desktop/DSG Assignment/Problem 4[00m$ sh script.sh 
+[?2004lEnter the dataset to train on : 
+mnit
+mnit
+[?2004h]0;parth_badgujar@Parth: ~/Desktop/DSG Assignment/Problem 4[01;32mparth_badgujar@Parth[00m:[01;34m~/Desktop/DSG Assignment/Problem 4[00m$ sh script.sh 
+[?2004lEnter the dataset to train on : mnist
+
+[?2004h]0;parth_badgujar@Parth: ~/Desktop/DSG Assignment/Problem 4[01;32mparth_badgujar@Parth[00m:[01;34m~/Desktop/DSG Assignment/Problem 4[00m$ [?2004l
+exit
+Script done.
+Username: 
+Age: 
+Full Name: 
