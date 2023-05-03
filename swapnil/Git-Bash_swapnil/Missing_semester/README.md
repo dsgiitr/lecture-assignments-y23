@@ -110,8 +110,29 @@ polo(){
 
 3.
 ```bash
-count=0
-until [["$?" -ne 0]];
-do 
-    count=$((count+1))
+#!/usr/bin/env bash
 
+count=0
+until [[ "$?" -ne 0 ]];
+do
+   count=$(( count + 1 ))
+   ./random.sh &> a.txt
+done
+
+echo "error returned after runs : $count"
+cat a.txt
+```
+
+4.
+```shell
+find . -type f -name "*.html" | xargs tar -cvf file.tar
+```
+
+5.
+
+```shell
+find . -type f -print0| xargs -0 stat --format '%Y :%y %n' | sort -nr | cut -d: -f2-
+```
+
+Using find instead of ls to avoid directories. \
+-print0 prints full file name(along with path) ending with null characters so that xargs can process this input.
