@@ -3,7 +3,7 @@ import torch.nn as nn
 import torch.nn.functional as f
 import sys
 
-text = open('dataset/file.txt').read()
+text = open('dataset/shakespeare.txt').read()
 chars = sorted(list(set(text)))
 
 device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
@@ -48,6 +48,10 @@ class NN(nn.Module):
 
 generated = ''
 
+block_size = 64
+vocab_size = len(chars)
+embed_dim = 128
+
 @torch.no_grad()
 def generate(inp, max_new_tokens):
     global generated
@@ -64,15 +68,11 @@ def generate(inp, max_new_tokens):
         print(itos[i[0].item()], end = '')
         inp = torch.cat((inp, i.view(1, 1)), 1)
         a, b = inp.shape
-        if b > 16 :
+        if b > block_size :
             inp = inp[:, 1:]
-block_size = 32
-vocab_size = 65
-embed_dim = 128
 
 
-
-model = NN()
+model = NN().to(device)
 checkpoint = torch.load('models/checkpoint.pt', map_location = device)
 model.load_state_dict(checkpoint['model'])
 print(generate(encode(

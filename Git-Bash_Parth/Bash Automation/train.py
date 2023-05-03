@@ -5,11 +5,12 @@ import torch.nn.functional as f
 import os
 import wandb
 from tqdm import tqdm
+
 num_epochs = int(sys.argv[1])
 batch_size = int(sys.argv[2])
 
 resume = False
-if 'checkpoint.pt' in os.listdir():
+if 'checkpoint.pt' in os.listdir('models'):
     resume = input('Do you wish to resume training (previous checkpoint will be deleted) ? [Y/n] ')
     if resume.lower() == 'y' :
         resume = True
@@ -45,7 +46,7 @@ def getPositionEncoding(seq_len, d, n=100):
 
 vocab_size = len(stoi)
 embed_dim = 128
-block_size = 32
+block_size = 64
 
 class NN(nn.Module):
     def __init__(self):
@@ -71,7 +72,7 @@ encoded = encode(text)
 def get_batch():
     idx = torch.randint(0, len(text) - block_size, (batch_size, ))
     x = torch.stack([encoded[i : i + block_size] for i in idx])
-    y = torch.stack([encoded[i : i + block_size] for i in idx])
+    y = torch.stack([encoded[i + 1: i + block_size + 1] for i in idx])
     return x, y
 
 old_epoch = 0
@@ -98,7 +99,7 @@ wandb.init(
 for epoch in tqdm(range(old_epoch, num_epochs + old_epoch)):
     x, y = get_batch()
     y_hat = model(x)
-    loss = f.cross_entropy(model(x).view(-1, vocab_size), y.view(-1))
+    loss = f.cross_entropy(y_hat.view(-1, vocab_size), y.view(-1))
     optimizer.zero_grad()
     loss.backward()
     optimizer.step()
@@ -107,7 +108,7 @@ for epoch in tqdm(range(old_epoch, num_epochs + old_epoch)):
         'epoch' : epoch,
         'model' : model.state_dict(),
         'optimizer' : optimizer.state_dict()
-    }, "checkpoint.pt")
+    }, "models/checkpoint.pt")
 
 print("Training completed !")
 wandb.finish()
