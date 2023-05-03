@@ -74,7 +74,7 @@ embed_dim = 128
 
 
 model = NN()
-model.load_state_dict(torch.load('pretrained.pt', map_location = device))
+model.load_state_dict(torch.load('models/pretrained.pt', map_location = device))
 print(generate(encode(
 f'''{sys.argv[1]}''').view(1, -1), int(sys.argv[2])))
 

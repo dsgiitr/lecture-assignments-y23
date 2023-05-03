@@ -73,7 +73,7 @@ embed_dim = 128
 
 
 model = NN()
-checkpoint = torch.load('checkpoint.pt', map_location = device)
+checkpoint = torch.load('models/checkpoint.pt', map_location = device)
 model.load_state_dict(checkpoint['model'])
 print(generate(encode(
 f'''{sys.argv[1]}''').view(1, -1), int(sys.argv[2])))

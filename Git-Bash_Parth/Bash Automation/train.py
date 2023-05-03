@@ -78,7 +78,7 @@ old_epoch = 0
 if resume :
     model = NN().to(device)
     optimizer = torch.optim.AdamW(model.parameters(), lr = 1e-3)
-    checkpoint = torch.load('checkpoint.pt')
+    checkpoint = torch.load('models/checkpoint.pt')
     model.load_state_dict(checkpoint['model'])
     optimizer.load_state_dict(checkpoint['optimizer'])
     old_epoch = checkpoint['epoch']
