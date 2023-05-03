@@ -13,7 +13,4 @@ read -p 'model parameters: ' n_estimators max_depth
 
 # Running python script
 python ML_script.py -d $train_data_path -t $test_data_path \
- -f $target_feature -p $n_estimators $max_depth > $output_path
-
-# Print the log output produced by python file
-cat $output_path
+ -f $target_feature -p $n_estimators $max_depth &> $output_path
