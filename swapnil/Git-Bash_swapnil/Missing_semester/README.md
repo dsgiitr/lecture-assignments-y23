@@ -97,11 +97,21 @@ ls -lath --color
 l is for long listing, a for all files, t for sorting by time and h for human-readable file sizes.
 
 2.
+```bash
+marco(){
+    export curr=$(pwd)
+}
+
+polo(){
+    cd curr
+}
 ```
 
-```
 
-# Problem 2
-
-
+3.
+```bash
+count=0
+until [["$?" -ne 0]];
+do 
+    count=$((count+1))
 
