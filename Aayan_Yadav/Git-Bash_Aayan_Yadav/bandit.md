@@ -417,4 +417,207 @@ first we enter into inhere directory by `cd inhere` then we print its contents b
 
 ##Level6-->7
 ```console
+bandit6@bandit:~$ find /  -user bandit7 -size 33c -group bandit6 2>/dev/null
+/var/lib/dpkg/info/bandit7.password
+bandit6@bandit:~$ cat /var/lib/dpkg/info/bandit7.password
+z7WtoNQU2XfjmMtWA8u5rN4vzqu4v99S
+bandit6@bandit:~$ exit
+logout
+Connection to bandit.labs.overthewire.org closed.
+ssh bandit7@bandit.labs.overthewire.org -p 2220
+```
+Entered Password : **z7WtoNQU2XfjmMtWA8u5rN4vzqu4v99S**
+ `find /` searches in root recursively `-user bandit7 -size 33c -group bandit6` looks for file that is owned by user bandit7 group bandit6 and has size 33 bytes. Then we open the file name returned using `cat`
+
+
+##Level7-->8
+```console
+bandit7@bandit:~$ ls
+data.txt
+bandit7@bandit:~$ grep 'millionth' <data.txt
+millionth	TESKZC0XvTetK0S9xNwm25STk5iWrBvP
+bandit7@bandit:~$ exit
+logout
+Connection to bandit.labs.overthewire.org closed.
+ssh bandit8@bandit.labs.overthewire.org -p 2220
+```
+Entered Password:**TESKZC0XvTetK0S9xNwm25STk5iWrBvP**
+`grep millionth` finds line that contains millionth. Input stream is set to data.txt using `<`
+
+
+##Level8-->9
+```console
+bandit8@bandit:~$ cat data.txt|sort|uniq -u
+EN632PlfYiZbn3PhVK3XOGSlNInNE00t
+bandit8@bandit:~$ exit
+logout
+Connection to bandit.labs.overthewire.org closed.
+ssh bandit9@bandit.labs.overthewire.org -p 2220
+```
+Entered Password:**EN632PlfYiZbn3PhVK3XOGSlNInNE00t**
+contents of data.txt is read using `cat` and the output is piped to `sort` so that duplicate lines come together as `uniq` checks for duplicacy only in adjacent lines. Output of `sort` is piped to `uniq`
+, `-u` flag prints only the non duplicate line
+
+
+##Level9-->10
+```console
+bandit9@bandit:~$ strings data.txt| grep '====='
+4========== the#
+========== password
+========== is
+========== G7w8LIi6J3kTb8A7j9LgrywtEUlyyp6s
+bandit9@bandit:~$ exit
+logout
+Connection to bandit.labs.overthewire.org closed.
+ssh bandit10@bandit.labs.overthewire.org -p 2220
+```
+Entered Password:**G7w8LIi6J3kTb8A7j9LgrywtEUlyyp6s**
+`strings.txt` finds printable strings in data.txt which is then piped in `grep '====='` which returns lines with multiple adjacent =
+
+
+##Level10-->11
+```console
+bandit10@bandit:~$ cat data.txt|base64 -d
+The password is 6zPeziLdR2RKNdNYFNb6nVCKzphlXHBM
+bandit10@bandit:~$ exit
+logout
+Connection to bandit.labs.overthewire.org closed.
+
+ssh bandit11@bandit.labs.overthewire.org -p 2220
+```
+Entered Password:**6zPeziLdR2RKNdNYFNb6nVCKzphlXHBM**
+output of `cat data.txt` is piped into `base64` which decodes the encoding using `-d` flag
+
+
+##Level11-->12
+```console
+bandit11@bandit:~$ cat data.txt| tr 'A-Za-z' 'N-ZA-Mn-za-m'
+The password is JVNBBFSmZwKKOP0XbFXOoW8chDz5yVRv
+bandit11@bandit:~$ exit
+logout
+Connection to bandit.labs.overthewire.org closed.
+ssh bandit12@bandit.labs.overthewire.org -p 2220
+```
+Entered Password:**JVNBBFSmZwKKOP0XbFXOoW8chDz5yVRv**
+contents of data.txt is read using `cat` and piped to `tr 'A-Za-z' 'N-ZA-Mn-za-m'` which rotates the contents rotated by 13, by 13 again to retrieve the password
+
+
+##Level12-->13
+```console
+bandit12@bandit:~$ mkdir /tmp/aayan123
+bandit12@bandit:~$ cp data.txt /tmp/aayan123
+bandit12@bandit:~$ cd /tmp/aayan123
+bandit12@bandit:/tmp/aayan123$ ls
+data.txt
+```
+`mkdir` is used to make aayan123 directory under /tmp . `cp` is used to copy data.txt to the newly made directory.Then we go in the directory by `cd /tmp/aayan123`
+
+```console
+bandit12@bandit:/tmp/aayan123$ mv data.txt hexdump.txt
+bandit12@bandit:/tmp/aayan123$ file hexdump.txt
+hexdump.txt: ASCII text
+bandit12@bandit:/tmp/aayan123$ xxd -r hexdump.txt > nonhex.txt
+```
+data.txt is renamed to hexdump.txt using `mv` command . then `xxd -r` is used to revert the hexdump back to binary and the output stream is directed to a new file named nonhex.txt
+
+```console
+bandit12@bandit:/tmp/aayan123$ file nonhex.txt
+nonhex.txt: gzip compressed data, was "data2.bin", last modified: Sun Apr 23 18:04:23 2023, max compression, from Unix, original size modulo 2^32 581
+bandit12@bandit:/tmp/aayan123$ gzip -d <nonhex.txt > decomp1.txt
+bandit12@bandit:/tmp/aayan123$ file decomp1.txt
+decomp1.txt: bzip2 compressed data, block size = 900k
+bandit12@bandit:/tmp/aayan123$ bzip2 -d <decomp1.txt > decomp2.txt
+bandit12@bandit:/tmp/aayan123$ file decomp2.txt
+decomp2.txt: gzip compressed data, was "data4.bin", last modified: Sun Apr 23 18:04:23 2023, max compression, from Unix, original size modulo 2^32 20480
+bandit12@bandit:/tmp/aayan123$ gzip -d <decomp2.txt > decomp3.txt
+bandit12@bandit:/tmp/aayan123$ file decomp2.txt
+decomp2.txt: gzip compressed data, was "data4.bin", last modified: Sun Apr 23 18:04:23 2023, max compression, from Unix, original size modulo 2^32 20480
+bandit12@bandit:/tmp/aayan123$ file decomp3.txt
+decomp3.txt: POSIX tar archive (GNU)
+bandit12@bandit:/tmp/aayan123$ tar xvf decomp3.txt
+data5.bin
+bandit12@bandit:/tmp/aayan123$ file data5.bin
+data5.bin: POSIX tar archive (GNU)
+bandit12@bandit:/tmp/aayan123$ tar xvf data5.bin
+data6.bin
+bandit12@bandit:/tmp/aayan123$ file data6.bin
+data6.bin: bzip2 compressed data, block size = 900k
+bandit12@bandit:/tmp/aayan123$ bzip2 -d <data6.bin > decomp4.txt
+bandit12@bandit:/tmp/aayan123$ file decomp4.txt
+decomp4.txt: POSIX tar archive (GNU)
+bandit12@bandit:/tmp/aayan123$ tar xvf decomp4.txt
+data8.bin
+bandit12@bandit:/tmp/aayan123$ file data8.bin
+data8.bin: gzip compressed data, was "data9.bin", last modified: Sun Apr 23 18:04:23 2023, max compression, from Unix, original size modulo 2^32 49
+bandit12@bandit:/tmp/aayan123$ gzip -d <data8.bin > decomp5.txt
+bandit12@bandit:/tmp/aayan123$ file decomp5.txt
+decomp5.txt: ASCII text
+bandit12@bandit:/tmp/aayan123$ cat decomp5.txt
+The password is wbWdlBxEir4CaE8LaPhauuOo6pwRmrDw
+bandit12@bandit:/tmp/aayan123$ exit
+logout
+Connection to bandit.labs.overthewire.org closed.
+ssh bandit13@bandit.labs.overthewire.org -p 2220
+```
+Entered Password:**wbWdlBxEir4CaE8LaPhauuOo6pwRmrDw**
+The file's type is checked using `file` command and if its is gzip archive or bzip2 archive it is decompressed using `gzip -d` or `bzip2 -d` respectively and output stored in newfile. A tar archive is accesed by `tar xvf`. This is done until file type comes to be ASCII text. Then the file is read using `cat` to get the password
+
+
+##Level13-->14
+```console
+
+bandit13@bandit:~$ ls
+sshkey.private
+bandit13@bandit:~$ cat sshkey.private
+-----BEGIN RSA PRIVATE KEY-----
+MIIEpAIBAAKCAQEAxkkOE83W2cOT7IWhFc9aPaaQmQDdgzuXCv+ppZHa++buSkN+
+gg0tcr7Fw8NLGa5+Uzec2rEg0WmeevB13AIoYp0MZyETq46t+jk9puNwZwIt9XgB
+ZufGtZEwWbFWw/vVLNwOXBe4UWStGRWzgPpEeSv5Tb1VjLZIBdGphTIK22Amz6Zb
+ThMsiMnyJafEwJ/T8PQO3myS91vUHEuoOMAzoUID4kN0MEZ3+XahyK0HJVq68KsV
+ObefXG1vvA3GAJ29kxJaqvRfgYnqZryWN7w3CHjNU4c/2Jkp+n8L0SnxaNA+WYA7
+jiPyTF0is8uzMlYQ4l1Lzh/8/MpvhCQF8r22dwIDAQABAoIBAQC6dWBjhyEOzjeA
+J3j/RWmap9M5zfJ/wb2bfidNpwbB8rsJ4sZIDZQ7XuIh4LfygoAQSS+bBw3RXvzE
+pvJt3SmU8hIDuLsCjL1VnBY5pY7Bju8g8aR/3FyjyNAqx/TLfzlLYfOu7i9Jet67
+xAh0tONG/u8FB5I3LAI2Vp6OviwvdWeC4nOxCthldpuPKNLA8rmMMVRTKQ+7T2VS
+nXmwYckKUcUgzoVSpiNZaS0zUDypdpy2+tRH3MQa5kqN1YKjvF8RC47woOYCktsD
+o3FFpGNFec9Taa3Msy+DfQQhHKZFKIL3bJDONtmrVvtYK40/yeU4aZ/HA2DQzwhe
+ol1AfiEhAoGBAOnVjosBkm7sblK+n4IEwPxs8sOmhPnTDUy5WGrpSCrXOmsVIBUf
+laL3ZGLx3xCIwtCnEucB9DvN2HZkupc/h6hTKUYLqXuyLD8njTrbRhLgbC9QrKrS
+M1F2fSTxVqPtZDlDMwjNR04xHA/fKh8bXXyTMqOHNJTHHNhbh3McdURjAoGBANkU
+1hqfnw7+aXncJ9bjysr1ZWbqOE5Nd8AFgfwaKuGTTVX2NsUQnCMWdOp+wFak40JH
+PKWkJNdBG+ex0H9JNQsTK3X5PBMAS8AfX0GrKeuwKWA6erytVTqjOfLYcdp5+z9s
+8DtVCxDuVsM+i4X8UqIGOlvGbtKEVokHPFXP1q/dAoGAcHg5YX7WEehCgCYTzpO+
+xysX8ScM2qS6xuZ3MqUWAxUWkh7NGZvhe0sGy9iOdANzwKw7mUUFViaCMR/t54W1
+GC83sOs3D7n5Mj8x3NdO8xFit7dT9a245TvaoYQ7KgmqpSg/ScKCw4c3eiLava+J
+3btnJeSIU+8ZXq9XjPRpKwUCgYA7z6LiOQKxNeXH3qHXcnHok855maUj5fJNpPbY
+iDkyZ8ySF8GlcFsky8Yw6fWCqfG3zDrohJ5l9JmEsBh7SadkwsZhvecQcS9t4vby
+9/8X4jS0P8ibfcKS4nBP+dT81kkkg5Z5MohXBORA7VWx+ACohcDEkprsQ+w32xeD
+qT1EvQKBgQDKm8ws2ByvSUVs9GjTilCajFqLJ0eVYzRPaY6f++Gv/UVfAPV4c+S0
+kAWpXbv5tbkkzbS0eaLPTKgLzavXtQoTtKwrjpolHKIHUz6Wu+n4abfAIRFubOdN
+/+aLoRQ0yBDRbdXMsZN/jvY44eM+xRLdRVyMmdPtP8belRi2E2aEzA==
+-----END RSA PRIVATE KEY-----
+bandit13@bandit:~$ exit
+logout
+Connection to bandit.labs.overthewire.org closed.
+vim pvtkey.txt
+chmod 600 pvtkey.txt
+ssh -i pvtkey.txt bandit14@bandit.labs.overthewire.org
+```
+On `ls`ing we find sshkey.privatekey whose content is read to the output screen using `cat` which is then copied. We the `exit` the remote session . Create a file called pvtkey.txt using `vim pvtkey.txt` and save the copied contents in it. `chmod 600` removes all permissions from the file except read and write permission of owner to make it secure. We now login to bandit14 using private key stored in pvtkey.txt using `ssh -i pvtkey.txt bandit14@bandit.labs.overthewire.org`
+
+
+##Level 14-->15
+```console
+bandit14@bandit:~$ cat /etc/bandit_pass/bandit14
+fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq
+bandit14@bandit:~$ nc localhost 30000
+fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq
+Correct!
+jN2kgmIXJ6fShzhT2avhotn4Zcka6tnt
+bandit14@bandit:~$ exit
+logout
+Connection to bandit.labs.overthewire.org closed.
+ssh bandit15@bandit.labs.overthewire.org -p 2220
+```
+We have access to shell of bandit14 so we can access password of current level stored in /etc/bandit_pass/bandit14. We access localhost on port 30000 using `nc localhost 30000` We then enter the password of current level to get the password of next level
 
