@@ -46,15 +46,15 @@ def getPositionEncoding(seq_len, d, n=100):
 
 vocab_size = len(stoi)
 embed_dim = 128
-block_size = 64
+block_size = int(sys.argv[7])
 
 class NN(nn.Module):
     def __init__(self):
         super().__init__()
         self.embedding = nn.Embedding(vocab_size, embed_dim)
         self.fc1 = nn.Linear(embed_dim, vocab_size)
-        self.layer = nn.TransformerEncoderLayer(embed_dim, 8, 512, batch_first = True)
-        self.transformer_encoder = nn.TransformerEncoder(self.layer, num_layers = 8)
+        self.layer = nn.TransformerEncoderLayer(embed_dim, int(sys.argv[5]), 512, batch_first = True)
+        self.transformer_encoder = nn.TransformerEncoder(self.layer, num_layers = int(sys.argv[6]))
     def forward(self, x):
         x = self.embedding(x)
         B, T, C = x.shape
@@ -93,7 +93,9 @@ wandb.init(
     config = { 
     "dataset" : sys.argv[4],
     "architecture": "transformer",
-    "epochs": old_epoch + num_epochs
+    "epochs": old_epoch + num_epochs,
+    "num_heads" : sys.argv[5],
+    "num_layers" : sys.argv[6]
     } ,
 )
 for epoch in tqdm(range(old_epoch, num_epochs + old_epoch)):

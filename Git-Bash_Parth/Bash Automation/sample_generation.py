@@ -72,7 +72,7 @@ def generate(inp, max_new_tokens):
             inp = inp[:, 1:]
     
 
-model = NN()
+model = NN().to(device)
 model.load_state_dict(torch.load('models/pretrained.pt', map_location = device))
 print(generate(encode(
 f'''{sys.argv[1]}''').view(1, -1), int(sys.argv[2])))

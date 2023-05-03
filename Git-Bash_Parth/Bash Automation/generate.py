@@ -5,7 +5,7 @@ import sys
 
 text = open('dataset/shakespeare.txt').read()
 chars = sorted(list(set(text)))
-
+config_dict = eval(open('curr_run','r').read())
 device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
 
 stoi = dict()
@@ -32,8 +32,8 @@ class NN(nn.Module):
         super().__init__()
         self.embedding = nn.Embedding(vocab_size, embed_dim)
         self.fc1 = nn.Linear(embed_dim, vocab_size)
-        self.layer = nn.TransformerEncoderLayer(embed_dim, 8, 512, batch_first = True)
-        self.transformer_encoder = nn.TransformerEncoder(self.layer, num_layers = 8)
+        self.layer = nn.TransformerEncoderLayer(embed_dim, int(config_dict['Num_heads']), 512, batch_first = True)
+        self.transformer_encoder = nn.TransformerEncoder(self.layer, num_layers = int(config_dict['Num_layers']))
     def forward(self, x):
         x = self.embedding(x)
         B, T, C = x.shape
@@ -48,7 +48,7 @@ class NN(nn.Module):
 
 generated = ''
 
-block_size = 64
+block_size = int(config_dict['block_size'])
 vocab_size = len(chars)
 embed_dim = 128
 
