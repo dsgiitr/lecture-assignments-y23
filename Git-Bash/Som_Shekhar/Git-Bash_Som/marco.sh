@@ -1,6 +1,4 @@
-#!/bin/zsh
-
 marco(){
-touch ~/newd
+touch ~/new
 pwd | tee ~/new
 } 

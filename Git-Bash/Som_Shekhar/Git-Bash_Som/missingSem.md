@@ -199,39 +199,172 @@ dint find /sys on macos
 ```
 ## 2
 ```
-access-control-allow-origin: *
+(base) somshekharsharma@MacBook-Air Git-Bash_Som % cat marco.sh
+marco(){
+touch ~/new
+pwd | tee ~/new
+} 
 
-etag: "644d0d01-1f86"
+(base) somshekharsharma@MacBook-Air Git-Bash_Som % marco
+/Users/somshekharsharma/dsg/lecture-assignments-y23/Git-Bash/Som_Shekhar/Git-Bash_Som
+(base) somshekharsharma@MacBook-Air Git-Bash_Som % cd ~ 
+(base) somshekharsharma@MacBook-Air ~ % cat polo.sh
+polo(){
+path="$(cat ~/new)"
+cd $path
+}
 
-expires: Sun, 30 Apr 2023 05:56:24 GMT
-
-cache-control: max-age=600
-
-x-proxy-cache: MISS
-
-x-github-request-id: 59CE:7486:C0AC0:F04F6:644E00AF
-
-accept-ranges: bytes
-
-date: Tue, 02 May 2023 21:04:39 GMT
-
-via: 1.1 varnish
-
-age: 0
-
-x-served-by: cache-ccu830046-CCU
-
-x-cache: HIT
-
-x-cache-hits: 1
-
-x-timer: S1683061479.974133,VS0,VE257
-
-vary: Accept-Encoding
-
-x-fastly-request-id: b57495d3bbd13d924f9f3ebcb8dd2fd8b2679b69
-
-content-length: 8070
+(base) somshekharsharma@MacBook-Air ~ % polo
+(base) somshekharsharma@MacBook-Air Git-Bash_Som % 
 
 ```
 
+
+## 3
+```
+q3.sh is original question script
+(base) somshekharsharma@MacBook-Air ~ % cat sol3.sh
+#!/usr/bin/env bash
+var=0
+count=0
+while [[ var -eq 0 ]]
+do
+~/q3.sh
+var="$(echo $?)"
+count=$(($count+1))
+done
+echo "$count"
+
+(base) somshekharsharma@MacBook-Air ~ % source sol3.sh
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Everything went according to plan
+Something went wrong
+The error was using magic numbers
+118
+```
+
+
+
+## 4
+```
+(base) somshekharsharma@MacBook-Air ~ % find . -type f -name "*.html" -print0 | xargs -0 tar -cvzf archive.tar.gz
+```
+## 5
+```
+find . -type f -print0 | xargs -0 stat -f "%m %N" | sort -rn | head -1 | cut -d' ' -f2-
+```
