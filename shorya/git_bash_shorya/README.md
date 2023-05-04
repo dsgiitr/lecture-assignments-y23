@@ -2,9 +2,8 @@
 
 ```
 .
-├── Git-Bash
-│   ├── README.md
-│   └── assignment1
+├── shorya
+│   ├── Git_Bash_shorya
 │       ├── README.md
 │       ├── solutions_bandit
 │       │   └── solutions.txt
