@@ -473,7 +473,10 @@ Hello, World
 
 ## Problem 4
 
-Bash script and pyhton files uploaded to Git-Bash_Anupriya folder. 
+Bash script and python files uploaded to Git-Bash_Anupriya folder. 
+
+All we need to do is get the Kaggle API command from any Kaggle dataset. For example, "kaggle datasets download -d aymenkhouja/timeofdaydataset"
+Now, when we run the bash script, it will delete any pre-existing datasets in the directory and download the new dataset whose command we used. After this we need to type the batch size, epochs and number of classes(depending on the dataset) and the code will train a simple sequential model, and saves it to a directpry "model".
 
 ## Problem 5
 1. Had set up SSH keys by following documentation when attempted to create the WIP PR, before doing Git-Immersion problems. Added key to Github successfully.
