@@ -1,0 +1,2 @@
+## random walk
+generating random numbers from 0 and 1 and moving ahead by 1 in case of generated number > 0.5 and 1 behind if < 0.5 then adding them to get the position and append it to a list and then plot it against steps
