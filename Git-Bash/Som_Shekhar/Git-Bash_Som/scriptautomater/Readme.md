@@ -4,10 +4,12 @@ char.RNN is the python script which predicts next few characters of code given a
 ## Arguments
 I have tried to create a bash script to run char.RNN. The bash script "script.sh" has 4 arguments which are 
 
-```handle=sys.argv[1]
+```
+handle=sys.argv[1]
 npage=sys.argv[2]
 my_string=sys.argv[3]
-n=sys.argv[4]```
+n=sys.argv[4]
+```
 
 * where handle is the codeforces handle of the user
 * npage are the number of pages in submission directory
@@ -17,13 +19,17 @@ n=sys.argv[4]```
 
 ## Steps to Use 
 
-Type ``` sh script.sh  ``` in terminal
+Type this  in terminal
+
+```
+sh script.sh  
+```
 then type arguments in the prompts.
 
 or you can write this way directly 
 ```
 python charRNN.py $handle $npage $string $n 
- ```
- the output will be generated in output.txt file 
+```
+ the output will be generated in output.txt file.
 
 
