@@ -1,0 +1,14 @@
+#!/bin/bash
+
+echo '' > error_log
+count=0
+while true; do
+  output=$(./given_script)
+  echo $output >> error_log
+  ((count++))
+  if [[ $output != "Everything went according to plan" ]]; then
+    break
+  fi
+done
+
+echo "The script was executed $count times"
