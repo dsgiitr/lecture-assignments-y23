@@ -203,13 +203,15 @@ bandit8@bandit:~$ sort data.txt -d | uniq -c
      10 yhJxWzo1jFPzfs1RP6cGonphKTjFVBXg
      10 YHtWBWO7CPN1EV2qcSnAtSl8Xi9kLtQI
      10 yvtL2C3x6iw7XOluSnoS1avXFUCsRSfg
-     ```
+     
+```
 
 
 ** password=EN632PlfYiZbn3PhVK3XOGSlNInNE00t **
 
 
 ## level 9-10
+
 ```
 bandit9@bandit:~$ strings data.txt
 B4Qle
@@ -421,6 +423,7 @@ o+Ma
 *x!g
 5fV^{g-u
 (?@1
+
 ```
 the strings command is used to extract printable character strings from binary files. It is typically used to search for human-readable text within binary files, such as executable files or library files.
 
