@@ -1,17 +1,17 @@
 #!/bin/bash
 
 
-echo "enter your codeforces handle"
+echo  "enter your codeforces handle"
 read handle
 
-echo "number of pages in your submission directory "
+echo  "number of pages in your submission directory "
 read npage
 
-echo "string to be followed"
+echo  "string to be followed"
 read string
 
-echo "number of characters to be generated"
+echo  "number of characters to be generated"
 read n
 
-python charRNN.py $handle $npage $ string $n
+python charRNN.py $handle $npage $string $n
 

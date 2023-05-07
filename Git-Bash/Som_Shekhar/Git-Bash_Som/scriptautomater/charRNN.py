@@ -127,6 +127,6 @@ for i in range(n):
   my_string += ch
   
   
-  
-print(my_string)
-
+with open('output.txt','w') as file:
+    file.write(my_string)
+print('Generated output written in output.txt')
