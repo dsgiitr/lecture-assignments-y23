@@ -1,5 +1,5 @@
 # charRNN.py
-char.RNN is the python script which predicts next few characters of code given an initial set of characters. A web scrapper is used to scrap data from codeforces, and a Recurrent Neural Network model is traineed upon the scrapped data.
+char.RNN is the python script which predicts next few characters of code given an initial set of characters. A web scrapper is used to scrap data from codeforces, and a Recurrent Neural Network model is trained upon the scrapped data.
 
 ## Arguments
 I have tried to create a bash script to run char.RNN. The bash script "script.sh" has 4 arguments which are 

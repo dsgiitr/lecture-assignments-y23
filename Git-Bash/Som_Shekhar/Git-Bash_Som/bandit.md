@@ -3,24 +3,31 @@
 (base) somshekharsharma@MacBook-Air ~ % ssh bandit0@bandit.labs.overthewire.org -p 2220
 password-bandit0
 # bandit 0-1
+```
 bandit0@bandit:~$ cat readme
+```
 NH2SXQwcBdpmTEzi3bvBHMM9H66vVXjL
 # bandit 1-2
 i used path to read file
+```
 bandit1@bandit:~$ pwd
 /home/bandit1
 bandit1@bandit:~$ cat /home/bandit1/-
 rRGizSaX8Mk1RTb1CNQoXTcYZWU6lgzi
+```
 # bandit 2-3
 used quotations 
+```
 bandit2@bandit:~$ ls
 spaces in this filename
 
 bandit2@bandit:~$ cat "spaces in this filename"
 aBZ0W5EmUfAf7kHTQeOwd8bauFJ2lAiG
+```
 
 # bandit 3-4
 -a flag of ls 
+```
 
 bandit3@bandit:~$ ls -a
 .  ..  .bash_logout  .bashrc  inhere  .profile
@@ -31,9 +38,11 @@ bandit3@bandit:~/inhere$ ls -a
 bandit3@bandit:~/inhere$ cat .hidden
 2EW7BBsr6aMMoJ2HjW067dm8EgX26xNe
 bandit3@bandit:~/inhere$ 
+```
 
 # bandit 4-5
 ## method1 :
+```
 bandit4@bandit:~$ ls
 inhere
 bandit4@bandit:~$ cd inhere
@@ -47,9 +56,11 @@ bandit4@bandit:~/inhere$ cat /home/bandit4/inhere/-file*
 ?=>KQ?2??]o-p8q?츑???D?
                        .~?&ϯ"PT?I'?cwk^j?????M????;,??co?9lrIWWI6bB37kxfiCQZqUdOIYfr6eEeqR
 ?׉ǰ?6=?>>?ӫ?w?<U'=?@??Z?xj??3??[ٲN|??G|b?G?[8?y?-?́*?
+```
 ** password =lrIWWI6bB37kxfiCQZqUdOIYfr6eEeqR **
 
 ## method 2
+```
 bandit4@bandit:~/inhere$ file ./*
 ./-file00: data
 ./-file01: data
@@ -61,28 +72,35 @@ bandit4@bandit:~/inhere$ file ./*
 ./-file07: ASCII text
 ./-file08: data
 ./-file09: Non-ISO extended-ASCII text, with no line terminators
+```
 
 ## bandit 5-6
-
+```
 bandit5@bandit:~/inhere$ find -size 1033c -ls
    292565      4 -rw-r-----   1 root     bandit5      1033 Apr 23 18:04 ./maybehere07/.file2
 bandit5@bandit:~/inhere$ find -size 1033c ! -perm \a+x -ls
    292565      4 -rw-r-----   1 root     bandit5      1033 Apr 23 18:04 ./maybehere07/.file2
 bandit5@bandit:~/inhere$ cat ./maybehere07/.file2
+```
 
 ** password =P4L4vucdmLnm8I7Vl7jG1ApGSfjYKqJU **
 
 ## bandit 6-7
+```
 bandit6@bandit:/$ find -size 33c -user bandit7 -group bandit6 -ls
    77144      4 -rw-r-----   1 bandit7  bandit6        33 Apr 23 18:04 ./var/lib/dpkg/info/bandit7.password
+   ```
 
 ** password = z7WtoNQU2XfjmMtWA8u5rN4vzqu4v99S **
 
 ## bandit 7-8
+```
  bandit7@bandit:~$ grep millionth data.txt
 millionth    TESKZC0XvTetK0S9xNwm25STk5iWrBvP
+```
 
 ## bandit 8-9
+```
 bandit8@bandit:~$ sort data.txt -d | uniq -c
      10 08Jd2vmb6FjR4zXPteGHhpJm8A0OOA5B
      10 0dEKX1sDwYtc4vyjrKpGu30ecWBsDDa9
@@ -185,12 +203,14 @@ bandit8@bandit:~$ sort data.txt -d | uniq -c
      10 yhJxWzo1jFPzfs1RP6cGonphKTjFVBXg
      10 YHtWBWO7CPN1EV2qcSnAtSl8Xi9kLtQI
      10 yvtL2C3x6iw7XOluSnoS1avXFUCsRSfg
+     ```
 
 
 ** password=EN632PlfYiZbn3PhVK3XOGSlNInNE00t **
 
 
 ## level 9-10
+```
 bandit9@bandit:~$ strings data.txt
 B4Qle
 x<9s
@@ -401,39 +421,46 @@ o+Ma
 *x!g
 5fV^{g-u
 (?@1
-
+```
 the strings command is used to extract printable character strings from binary files. It is typically used to search for human-readable text within binary files, such as executable files or library files.
 
 
 ** password = G7w8LIi6J3kTb8A7j9LgrywtEUlyyp6s **
 
 ## level 10-11
-
+```
 bandit10@bandit:~$ base64 data.txt -d
 The password is 6zPeziLdR2RKNdNYFNb6nVCKzphlXHBM
+```
 
 ## level 11-12
+```
 
 bandit11@bandit:~$ tr 'A-Za-z' 'N-ZA-Mn-za-m'<data.txt
+```
 The password is JVNBBFSmZwKKOP0XbFXOoW8chDz5yVRv
 
 
 ## level 12-13
 
 recursively decompressing bzip2 gzip and tar files by commands: 
+```
 
 bandit12@bandit:/tmp/level12/yo$ tar -xf data.txt
 bandit12@bandit:/tmp/level12/yo$ gzip -d <new.txt>data.txt
 bandit12@bandit:/tmp/level12/yo$ bzip2 -d <data.txt>new.txt
+```
 
 ** password = wbWdlBxEir4CaE8LaPhauuOo6pwRmrDw **
 
 ## level 13-14
-
+```
 ssh -i sshkey.private bandit14@bandit.labs.overthewire.org -p 2220
+```
 
 
 ## level 14-15
+```
 
 bandit14@bandit:/etc/ssh$ telnet localhost 30000
 Trying 127.0.0.1...
@@ -442,6 +469,7 @@ Escape character is '^]'.
 4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e
 Correct!
 BfMYroe26WYalil77FoDi9qh59eK5xNr
+```
 
 
 
