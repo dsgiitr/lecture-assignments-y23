@@ -1,0 +1,1 @@
+{'Project' : 'shakespeare','Dataset' : 'shakespeare','Num_heads' : '8','Num_layers' : '8', 'block_size' : '64'}
