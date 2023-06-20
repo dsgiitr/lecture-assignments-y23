@@ -1,29 +1,89 @@
-# Assignment 2B
+#Assignment 2A
 
-Q1: a) We usually estimate the mean of the distribution $p(y|x)$, why ?. 
+1. A local theatre employs two ticket collectors, Alice and Bob, although only one of them
+works on any given day. The number of tickets X that a ticket collector can collect in an hour
+is modelled by a distribution which has mean λ, and probability mass function
 
-b) In vanilla Linear Regression, we consider $p(y|x) = \mathcal{N}(y; \mu, \sigma)$ we usually take $\mu = w*x$ and $\sigma = I$. Code a vanilla linear regression under this setting. Discuss the effect of choice of sigma over final objective. Is parameterizing sigma really helpful? Explain. 
+P(X = k) = (λ
+k
+/k!)e-λ
 
-c) Consider any Exponential family distribution and create a regression model from that. Clearly state what you are trying to estimate. Obtain a loss function for it and generate a simple dataset corresponding to it. Train the corresponding regression model on the created dataset. 
+for k = 0, 1, 2,.... (This distribution is called a Poisson distribution. It is an important discrete
+distribution in biology and physics.) Suppose that Alice collects, on average, 10 tickets an
+hour and Bob collects, on average, 15 tickets an hour. One day the manager stays home sick.
+He knows Bob is supposed to work that day, but thinks there are 1 to 10 odds that Alice is
+filling in for Bob (based on Bob’s prior history of taking advantage of Alice’s generous nature
+when the manager is away). The suspicious manager monitors ticket sales online and
+observes that over the span of 5 hours there are 12, 10, 11, 4, and 11 tickets collected. What
+are the manager’s posterior odds that Alice is filling in for Bob?
+2. Your friend transmits an unknown value θ to you over a noisy channel. The noise is normally
+distributed with mean 0 and a known variance 4. so the value x that you receive is modelled
+by N(θ, 4). Based on previous communications, your prior on θ is N(5, 9).
+(a) Suppose your friend transmits a value to you that you receive as x = 6. Show that
 
-**Note:** For this part you need to code your model from scratch.
+the posterior pdf for θ is N(74/13, 36/13). The reading gave formulas for normal-
+normal updating, but for this problem carry out the calculations from scratch using
 
+our usual Bayesian update table and a good dose of algebra.
+(b) Suppose your friend transmits the same value θ to you n times. You receive these
 
-Q2 : You are given 2 varibles x and y and corresponding to them you are given 3 different train sets and test sets. Their name is A, B, C. Out of these three one train set and one test set is from the actual data distribution without any errors. Train 3 different linear regression models using [this](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html). Your task is to determine from the given datasets which set is from the actual distribution by assessing each model on each type of test set. For the other datasets find out how do the differ from the actual data distribution. Plot the error terms of these datasets and determine its distribution type and parameters. You might use scikitlearn's Mean Squared Error functions or Mean Absolute Error. Dataset can be found [here](https://drive.google.com/drive/folders/1MiN546HNZm6EKa1Mj3vP3ZeETHIZI3B0?usp=sharing).
+signals plus noise as x1,...,xn with sample mean x ̄. In the reading we gave normal-
+normal Bayesian update formulas which apply in this case. For this problem you can
 
-**Note:** The dataset whose files name is A in test set as well as train set may not correspond to the same data distribution. 
+use these formulas.
 
+Suppose your friend transmits the same value θ to you 4 times. You receive these
+signals plus noise as x1,...,x4 with sample mean x ̄ = 6. Using the same prior and
+know variance σ2 as in part (a), show that the posterior on θ is N(5.9, 0.9). Plot the
+prior and posterior on the same graph. Describe how the data changes your belief
+about the true value of θ.
+(c) How do the mean and variance of the posterior change as more data is received?
+What is gained by sending the same signal multiple times? Here we want you to
+interpret the equations (1).
+(d) IQ in the general population follows a N(100, 152) distribution. An IQ test is
+unbiased with a known normal variance of 102; that is, if the same person is tested
+multiple times, their measured IQ will differ from their true IQ according to a normal
+distribution with mean 0 and variance 100.
+i) Randall Vard scored an 80 on the test. What is the expected value of his true IQ?
 
-Q3 : Implement logistic regression from scratch. Generate your custom toy dataset for the same using NumPy. Taking the log likelihood loss function $l(\theta$), use 2 iterative optimization algorithms, (a) Batch Gradient Descent and (b) Fisher scoring (Newton's method) for minimising the loss. Code both these algorithms from scratch too and derive important comparative conclusions from the 2 optimization techniques over the same training dataset (example- convergence speed, runtime complexity etc.) and represent them in any way you like.
+ii) Mary I. Taft scored a 150 on the test. What is the expected value of her true IQ?
+3. Suppose you have a dataset of observations following a Gaussian distribution with an
+unknown mean and variance. How would you use MLE to estimate the parameters of the
+Gaussian distribution in Python?
+4. Suppose you have a dataset of binary classification, and you want to estimate the
+parameters of a logistic regression model using MAP estimation with a Gaussian prior on the
+model parameters. How would you formulate the likelihood, prior, and posterior
+distributions, and how would you find the MAP estimate of the model parameters in
+Python?
+5. Calculate the VC dimension of the following concept classes(These are fairly trivial cases, I
+just want you to have another look at VC dimension):
+a. Constant function
+b. Linear Function in d dimensions
+c. Axis aligned rectangle in 2 dimensions
+d. Intervals
+Go through these links (reading assignment, lol)
 
-*Reading link for [Fisher scoring method](https://hua-zhou.github.io/teaching/biostatm280-2017spring/slides/18-newton/newton.html). You may also refer CS229 notes (topic 7) to read about this.
-(**Please note:** Do not use any pre-defined Python class to code any part of the above question such as the ones in Sklearn. The solution should be a step-wise version coded by you representing the mathematical aspect of each step. You can, however use Sklearn for quantifying the comparative conclusions if you wish.)
+(Compulsory) https://stats.stackexchange.com/questions/182685/why-is-vc-dimension-
+important
 
-Q 4: For each of parts, indicate whether we would generally expect the performance of a flexible statistical learning method to be better or worse than an inflexible method. Justify your answer using concepts covered during the lecture and try to hit upon certain key-terms. Also, discuss the bias and variance tradeoff in each scenario.
-a. The sample size n is extremely large, and the number of predictors p is small.
-b. The number of predictors p is extremely large, and the number of observations n is small.
-c. The relationship between the predictors and response is highly non-linear.
+(For people who like math) https://www.cs.columbia.edu/~verma/classes/ml/ref/lec6_vc.pdf
+BONUS QUESTION: This is an OPEN-ENDED question and you are supposed to think in depth about
+this one.
+We have 2 different Gaussian Distributions D1 and D2 and 2 different datasets, each consisting of N
+data points were generated from each distribution, unfortunately the 2 datasets were mixed and
+now we have a single dataset consisting of 2N data points. Your job is to figure out the mean and
+variance of D1 and D2.
+(Note: The combined dataset has equal number of points from D1 and D2, and both the
+distributions are Gaussian)
+i) Try to devise an algorithm/strategy which can achieve this task, try to prove its
+correctness and convergence (if possible)
 
-**You have to submit your solutions in a Jupyter Notebook. For theretical questions ypu have to use markdown in the notebook itself. Explain things clearly and provide comments wherever you seem necessary.**
+ii) I am attaching the link of a dataset which has been generated in the above-
+mentioned format, figure out the mean and variance of the distributions.
 
-
+iii) If you think that this cannot be predicted with high certainty using any ML algorithm,
+prove it!
+iv) Alternatively, consider an easier problem, what if I tell you the distributions D1 and
+D2 but make no comment about the ratio of data points taken from each distribution
+(like let’s say I take 3 points from D1 for every point taken from D2), can you predict
+this ratio? If yes, mention the strategy you will employ.
