@@ -1,4 +1,4 @@
-#Assignment 2A
+# Assignment 2A
 
 1. A local theatre employs two ticket collectors, Alice and Bob, although only one of them
 works on any given day. The number of tickets X that a ticket collector can collect in an hour
