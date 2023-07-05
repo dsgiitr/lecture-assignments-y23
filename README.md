@@ -18,5 +18,11 @@ https://www.kaggle.com/datasets/ahmedmohameddawoud/ecommerce-ab-testing
 
 Look at the code contributions in the link to get an idea of how its implemented.
 
-## MATH-2
+## MATH & ML
+
+The assignment has been divided into 3 parts and you are expected to:
+### -Complete atleast one part by 21st - https://hackmd.io/1GLPNImwQbCbYNeIHc5Bww?view
+### -Complete atleast two parts by 25th -https://drive.google.com/file/d/1yD35uuig5mYxQlbi3mnPl0htKtcCheHp/view?usp=sharing
+### -Complete the entire assignment by 28th - https://hackmd.io/rRMAoU02RbyASZGMrubPPA?view
+
 ## ML-0

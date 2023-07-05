@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>git bash assignment</title>
+    <style>
+      body {
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
+<body>
+<pre><font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git init
+<font color="#C4A000">hint: Using &apos;master&apos; as the name for the initial branch. This default branch name</font>
+<font color="#C4A000">hint: is subject to change. To configure the initial branch name to use in all</font>
+<font color="#C4A000">hint: of your new repositories, which will suppress this warning, call:</font>
+<font color="#C4A000">hint: </font>
+<font color="#C4A000">hint: </font>	<font color="#C4A000">git config --global init.defaultBranch &lt;name&gt;</font>
+<font color="#C4A000">hint: </font>
+<font color="#C4A000">hint: Names commonly chosen instead of &apos;master&apos; are &apos;main&apos;, &apos;trunk&apos; and</font>
+<font color="#C4A000">hint: &apos;development&apos;. The just-created branch can be renamed via this command:</font>
+<font color="#C4A000">hint: </font>
+<font color="#C4A000">hint: </font>	<font color="#C4A000">git branch -m &lt;name&gt;</font>
+Initialized empty Git repository in /home/shreework/hello/.git/
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git add hello.rb
+fatal: pathspec &apos;hello.rb&apos; did not match any files
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ touch hello.rb
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ nano hello.rb
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git add hello.rb
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git commit
+[master (root-commit) db4905b] First Commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hello.rb
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git status
+On branch master
+nothing to commit, working tree clean
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git status
+On branch master
+Changes not staged for commit:
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)
+	<font color="#CC0000">modified:   hello.rb</font>
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git add hello.rb
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git status
+On branch master
+Changes to be committed:
+  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)
+	<font color="#4E9A06">modified:   hello.rb</font>
+
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git commit
+[master 670d234] New commit
+ 1 file changed, 1 insertion(+)
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git staus
+git: &apos;staus&apos; is not a git command. See &apos;git --help&apos;.
+
+The most similar command is
+	status
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git status
+On branch master
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git add hello.rb
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ nano hello.rb
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git status
+On branch master
+Changes to be committed:
+  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)
+	<font color="#4E9A06">modified:   hello.rb</font>
+
+Changes not staged for commit:
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)
+	<font color="#CC0000">modified:   hello.rb</font>
+
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git commit -m &quot;Added a default value&quot;
+[master fc0d96e] Added a default value
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git status
+On branch master
+Changes not staged for commit:
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)
+	<font color="#CC0000">modified:   hello.rb</font>
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git add .
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git status
+On branch master
+Changes to be committed:
+  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)
+	<font color="#4E9A06">modified:   hello.rb</font>
+
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git commit -m &quot;Added a comment&quot;
+[master 59da015] Added a comment
+ 1 file changed, 3 insertions(+)
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git log
+<font color="#C4A000">commit 59da01577399fb9628d4a47a0d7a848aecf27829 (</font><font color="#06989A"><b>HEAD -&gt; </b></font><font color="#4E9A06"><b>master</b></font><font color="#C4A000">)</font>
+Author: shree &lt;singhishree@gmail.com&gt;
+Date:   Sun Apr 30 14:32:06 2023 +0530
+
+    Added a comment
+
+<font color="#C4A000">commit fc0d96eaf49f2e8137e7afb323c9c195087cc5b2</font>
+Author: shree &lt;singhishree@gmail.com&gt;
+Date:   Sun Apr 30 14:31:06 2023 +0530
+
+    Added a default value
+
+<font color="#C4A000">commit 670d234e197e2da0ae5989458187429b8006e095</font>
+Author: shree &lt;singhishree@gmail.com&gt;
+Date:   Sun Apr 30 13:13:20 2023 +0530
+
+    New commit
+
+<font color="#C4A000">commit db4905b0448afcfd3f3e631141c31a6ff141ca92</font>
+Author: shree &lt;singhishree@gmail.com&gt;
+Date:   Sun Apr 30 12:36:12 2023 +0530
+
+    First Commit
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git log --pretty=oneline
+<font color="#C4A000">59da01577399fb9628d4a47a0d7a848aecf27829 (</font><font color="#06989A"><b>HEAD -&gt; </b></font><font color="#4E9A06"><b>master</b></font><font color="#C4A000">)</font> Added a comment
+<font color="#C4A000">fc0d96eaf49f2e8137e7afb323c9c195087cc5b2</font> Added a default value
+<font color="#C4A000">670d234e197e2da0ae5989458187429b8006e095</font> New commit
+<font color="#C4A000">db4905b0448afcfd3f3e631141c31a6ff141ca92</font> First Commit
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git log --all --pretty=format:&apos;%h %cd %s (%an)&apos; --since=&apos;7 days ago&apos; --author=shree
+59da015 Sun Apr 30 14:32:06 2023 +0530 Added a comment (shree)
+fc0d96e Sun Apr 30 14:31:06 2023 +0530 Added a default value (shree)
+670d234 Sun Apr 30 13:13:20 2023 +0530 New commit (shree)
+bash: /home/shree: Is a directory
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ cd $HOME
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>~</b></font>$ touch .gitconfig
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>~</b></font>$ nano .gitconfig 
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>~</b></font>$ cd work/hello
+bash: cd: work/hello: No such file or directory
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>~</b></font>$ cd work/hello
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git hist
+* 59da015 2023-04-30 | Added a comment (HEAD -&gt; master) [shree]
+* fc0d96e 2023-04-30 | Added a default value [shree]
+* 670d234 2023-04-30 | New commit [shree]
+* db4905b 2023-04-30 | First Commit [shree]
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git checkout db4905b
+Note: switching to &apos;db4905b&apos;.
+
+You are in &apos;detached HEAD&apos; state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c &lt;new-branch-name&gt;
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at db4905b First Commit
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ cat hello.rb
+puts &quot;Hello, World&quot;
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git checkout master
+Previous HEAD position was db4905b First Commit
+Switched to branch &apos;master&apos;
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ cat hello.rb
+# Default is &quot;World&quot;
+name = ARGV.first || &quot;World&quot;
+
+puts &quot;Hello, #{name}!&quot;name = ARGV.first || &quot;World&quot;
+
+puts &quot;Hello, #{name}!&quot;puts &quot;Hello, #{ARGV.first}!&quot;
+puts &quot;Hello, World&quot;
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git tag v1
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git checkout v1~1
+Note: switching to &apos;v1~1&apos;.
+
+You are in &apos;detached HEAD&apos; state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c &lt;new-branch-name&gt;
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at fc0d96e Added a default value
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ cat hello.rb
+name = ARGV.first || &quot;World&quot;
+
+puts &quot;Hello, #{name}!&quot;puts &quot;Hello, #{ARGV.first}!&quot;
+puts &quot;Hello, World&quot;
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git tag v1-beta
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git checkout v1
+Previous HEAD position was fc0d96e Added a default value
+HEAD is now at 59da015 Added a comment
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git checkout v1-beta
+Previous HEAD position was 59da015 Added a comment
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git tag
+v1
+v1-beta
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git hist master --all
+* 59da015 2023-04-30 | Added a comment (tag: v1, master) [shree]
+* fc0d96e 2023-04-30 | Added a default value (HEAD, tag: v1-beta) [shree]
+* 670d234 2023-04-30 | New commit [shree]
+* db4905b 2023-04-30 | First Commit [shree]
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ nano hello.rb
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git checkout master
+Previous HEAD position was fc0d96e Added a default value
+Switched to branch &apos;master&apos;
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ nano hello.rb
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git status
+On branch master
+Changes not staged for commit:
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)
+	<font color="#CC0000">modified:   hello.rb</font>
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git checkout hello.rb
+Updated 1 path from the index
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git status
+On branch master
+nothing to commit, working tree clean
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ cat.hello.rb
+cat.hello.rb: command not found
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ cat hello.rb
+# Default is &quot;World&quot;
+name = ARGV.first || &quot;World&quot;
+
+puts &quot;Hello, #{name}!&quot;name = ARGV.first || &quot;World&quot;
+
+puts &quot;Hello, #{name}!&quot;puts &quot;Hello, #{ARGV.first}!&quot;
+puts &quot;Hello, World&quot;
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ nano hello.rb
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git add hello.rb
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git status
+On branch master
+Changes to be committed:
+  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)
+	<font color="#4E9A06">modified:   hello.rb</font>
+
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git reset HEAD hello.rb
+Unstaged changes after reset:
+M	hello.rb
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git checkout hello.rb
+Updated 1 path from the index
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git status
+On branch master
+nothing to commit, working tree clean
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ nano hello.rb
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git add hello.rb
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git commit-m &quot;Ooooopsss&quot;
+git: &apos;commit-m&apos; is not a git command. See &apos;git --help&apos;.
+
+The most similar command is
+	commit-tree
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git commit -m &quot;Ooooopsss&quot;
+[master b6cfd80] Ooooopsss
+ 1 file changed, 2 insertions(+), 5 deletions(-)
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git revert HEAD
+[master 4d3d05b] Revert &quot;Ooooopsss&quot;
+ 1 file changed, 5 insertions(+), 2 deletions(-)
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git hist
+* 4d3d05b 2023-04-30 | Revert &quot;Ooooopsss&quot; (HEAD -&gt; master) [shree]
+* b6cfd80 2023-04-30 | Ooooopsss [shree]
+* 59da015 2023-04-30 | Added a comment (tag: v1) [shree]
+* fc0d96e 2023-04-30 | Added a default value (tag: v1-beta) [shree]
+* 670d234 2023-04-30 | New commit [shree]
+* db4905b 2023-04-30 | First Commit [shree]
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git tag oops
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git reset --hard v1
+HEAD is now at 59da015 Added a comment
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git hist
+* 59da015 2023-04-30 | Added a comment (HEAD -&gt; master, tag: v1) [shree]
+* fc0d96e 2023-04-30 | Added a default value (tag: v1-beta) [shree]
+* 670d234 2023-04-30 | New commit [shree]
+* db4905b 2023-04-30 | First Commit [shree]
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git hist --all
+* 4d3d05b 2023-04-30 | Revert &quot;Ooooopsss&quot; (tag: oops) [shree]
+* b6cfd80 2023-04-30 | Ooooopsss [shree]
+* 59da015 2023-04-30 | Added a comment (HEAD -&gt; master, tag: v1) [shree]
+* fc0d96e 2023-04-30 | Added a default value (tag: v1-beta) [shree]
+* 670d234 2023-04-30 | New commit [shree]
+* db4905b 2023-04-30 | First Commit [shree]
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git tag -d oops
+Deleted tag &apos;oops&apos; (was 4d3d05b)
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git hist --all
+* 59da015 2023-04-30 | Added a comment (HEAD -&gt; master, tag: v1) [shree]
+* fc0d96e 2023-04-30 | Added a default value (tag: v1-beta) [shree]
+* 670d234 2023-04-30 | New commit [shree]
+* db4905b 2023-04-30 | First Commit [shree]
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ #gayab yay
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ nano hello.rb
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git add hello.rb
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git commit -m &quot;Adds an author comment&quot;
+[master f35c876] Adds an author comment
+ 1 file changed, 3 insertions(+), 5 deletions(-)
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ nano hello.rb
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git add hello.rb
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git commit --amend -m &quot;Adds an author and email comment&quot;
+[master 75c4bfc] Adds an author and email comment
+ Date: Sun Apr 30 16:03:42 2023 +0530
+ 1 file changed, 3 insertions(+), 5 deletions(-)
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git hist
+* 75c4bfc 2023-04-30 | Adds an author and email comment (HEAD -&gt; master) [shree]
+* 59da015 2023-04-30 | Added a comment (tag: v1) [shree]
+* fc0d96e 2023-04-30 | Added a default value (tag: v1-beta) [shree]
+* 670d234 2023-04-30 | New commit [shree]
+* db4905b 2023-04-30 | First Commit [shree]
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ mkdir lib
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git mv hello.rb lib
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git status
+On branch master
+Changes to be committed:
+  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)
+	<font color="#4E9A06">renamed:    hello.rb -&gt; lib/hello.rb</font>
+
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git commit -m &quot;Moved it&quot;
+[master 8ceb0d6] Moved it
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>~/Documents/coding/lecture-assignments-dsg/Git-Bash_Shree/git_</b></font><font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ 
+
+</pre>
+
+<pre><font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ ls -C .git
+<font color="#3465A4"><b>branches</b></font>        config       HEAD   index  <font color="#3465A4"><b>logs</b></font>     ORIG_HEAD    <font color="#3465A4"><b>refs</b></font>
+COMMIT_EDITMSG  description  <font color="#3465A4"><b>hooks</b></font>  <font color="#3465A4"><b>info</b></font>   <font color="#3465A4"><b>objects</b></font>  packed-refs
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ ls -C .git/objects
+<font color="#3465A4"><b>09</b></font>  <font color="#3465A4"><b>27</b></font>  <font color="#3465A4"><b>4d</b></font>  <font color="#3465A4"><b>5a</b></font>  <font color="#3465A4"><b>6b</b></font>  <font color="#3465A4"><b>6f</b></font>  <font color="#3465A4"><b>8c</b></font>  <font color="#3465A4"><b>97</b></font>  <font color="#3465A4"><b>b5</b></font>  <font color="#3465A4"><b>bc</b></font>  <font color="#3465A4"><b>db</b></font>  <font color="#3465A4"><b>e7</b></font>  <font color="#3465A4"><b>fc</b></font>    <font color="#3465A4"><b>pack</b></font>
+<font color="#3465A4"><b>24</b></font>  <font color="#3465A4"><b>2c</b></font>  <font color="#3465A4"><b>59</b></font>  <font color="#3465A4"><b>67</b></font>  <font color="#3465A4"><b>6e</b></font>  <font color="#3465A4"><b>75</b></font>  <font color="#3465A4"><b>96</b></font>  <font color="#3465A4"><b>af</b></font>  <font color="#3465A4"><b>b6</b></font>  <font color="#3465A4"><b>c4</b></font>  <font color="#3465A4"><b>e4</b></font>  <font color="#3465A4"><b>f3</b></font>  <font color="#3465A4"><b>info</b></font>
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git hist --max-count=1
+* 8ceb0d6 2023-04-30 | Moved it (HEAD -&gt; master) [shree]
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git cat-file -t 8ceb0d6
+commit
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git cat-file -p 8ceb0d6
+tree e790399173199c7361c455a8fd365b2386bbd6e7
+parent 75c4bfcc4c8df978e5539549ec1edfe876d40f9f
+author shree &lt;singhishree@gmail.com&gt; 1682851129 +0530
+committer shree &lt;singhishree@gmail.com&gt; 1682851129 +0530
+gpgsig -----BEGIN PGP SIGNATURE-----
+ 
+ iQIzBAABCAAdFiEE3rcP9X1YXGeIwYuOrtNsT+v8aXEFAmRORTkACgkQrtNsT+v8
+ aXFEIA/+Nc+b01D7yM0g+YF10MjJUoYbHR/hey5B1JwlMpX1qIjvlxRXFI5qTz9N
+ bZGhjRiSHFfO9ilr6q6bWM13cPeE9FIIHQpEIdCjWf63hC6f7LeaaBFXefxkkZNt
+ mbJEf4wwc9z+3nwUO782Qj3gEA5rtAslg6ll+hwP9G7u+/nrDnszBexN55jWVFv/
+ nhW5P3m1vANFI3i7Zo1cK+ILmZDbwK1rHGQmo/e8W3kPC5otMWyFLRoYiqQonWCf
+ 7SJlekgZ/K/MjToQiTJAoLsnN35URogpj6l6DpcRo+yAaKLWGJ8u7+2/N5H2WDfK
+ CgMyQLnHgw4XKB19Lq/cxDRIQKrPpIITU7W/4k+pKFjp4Lh6j2GsTYIY2Q/YuodY
+ u67QEGgihAC1fc4v3VEbCUfzBf/K7XLLcXhxijhwU5xBzwx73NEPwIqyj1r8BO65
+ q3AfiO1G9FKHsJ1g2dgbawnM7W/hM0zLSIiJ2y1CgQ59pguuqgDbsTlYDNLxvqcH
+ QugCIISXh7jtEcpy4fHRoLOYcg7JzcLZJi1LnFFPLuoTGyx4/bIDi/uh8xVHohGK
+ CHr3Kw92/JZoypuLUVx7uOhp9FwpMOUTwWI2Wu8Sv8nei/Kvtr09zBqujXPjjBk7
+ OTrH08w6tID1zRL0hn7mzSqRWjxVoEeKT0WgKWJr9VyaClHuGJg=
+ =QShS
+ -----END PGP SIGNATURE-----
+
+Moved it
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git cat-file -p e790399173199c7361c455a8fd365b2386bbd6e7
+040000 tree e46f374f5b36c6f02fb3e9e922b79044f754d795	lib
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git cat-file -p e46f374f5b36c6f02fb3e9e922b79044f754d795
+100644 blob c45f26b6fdc7db6ba779fc4c385d9d24fc12cf72	hello.rb
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git cat-file -p c45f26b6fdc7db6ba779fc4c385d9d24fc12cf72
+# Default is World
+# Author: Jim Weirich (jim@somewhere.com)
+name = ARGV.first || &quot;World&quot;
+
+puts &quot;Hello, #{name}!&quot;
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git checkout -b greet
+Switched to a new branch &apos;greet&apos;
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git status
+On branch greet
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ nano lib/greeter.rb 
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git add lib/greeter.rb
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git commit -m &quot;Added class&quot;
+[greet 84e6931] Added class
+ 1 file changed, 8 insertions(+)
+ create mode 100644 lib/greeter.rb
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ nano lib/hello.rb
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git add lib/hello.rb
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git commit -m &quot;now hello uses Greeter&quot;
+[greet a5548e6] now hello uses Greeter
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ nano script.py
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git add script.py
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git commit -m &quot;Added python script&quot;
+[greet 75504f0] Added python script
+ 1 file changed, 1 insertion(+)
+ create mode 100644 script.py
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git hist --all
+* 75504f0 2023-04-30 | Added python script (HEAD -&gt; greet) [shree]
+* a5548e6 2023-04-30 | now hello uses Greeter [shree]
+* 84e6931 2023-04-30 | Added class [shree]
+* 8ceb0d6 2023-04-30 | Moved it (master) [shree]
+* 75c4bfc 2023-04-30 | Adds an author and email comment [shree]
+* 59da015 2023-04-30 | Added a comment (tag: v1) [shree]
+* fc0d96e 2023-04-30 | Added a default value (tag: v1-beta) [shree]
+* 670d234 2023-04-30 | New commit [shree]
+* db4905b 2023-04-30 | First Commit [shree]
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git branch
+* <font color="#4E9A06">greet</font>
+  master
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git checkout master
+Switched to branch &apos;master&apos;
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ cat lib/hello.rb
+# Default is World
+# Author: Jim Weirich (jim@somewhere.com)
+name = ARGV.first || &quot;World&quot;
+
+puts &quot;Hello, #{name}!&quot;
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git checkout greet
+Switched to branch &apos;greet&apos;
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git checkout master
+Switched to branch &apos;master&apos;
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ touch README
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ nano README
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git commit .
+On branch master
+Untracked files:
+  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+	<font color="#CC0000">README</font>
+
+nothing added to commit but untracked files present (use &quot;git add&quot; to track)
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git add -A
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git commit .
+[master f56dcb1] added README
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git hist --all --graph
+* f56dcb1 2023-04-30 | added README (HEAD -&gt; master) [shree]
+<font color="#CC0000">|</font> * 75504f0 2023-04-30 | Added python script (greet) [shree]
+<font color="#CC0000">|</font> * a5548e6 2023-04-30 | now hello uses Greeter [shree]
+<font color="#CC0000">|</font> * 84e6931 2023-04-30 | Added class [shree]
+<font color="#CC0000">|/</font>  
+* 8ceb0d6 2023-04-30 | Moved it [shree]
+* 75c4bfc 2023-04-30 | Adds an author and email comment [shree]
+* 59da015 2023-04-30 | Added a comment (tag: v1) [shree]
+* fc0d96e 2023-04-30 | Added a default value (tag: v1-beta) [shree]
+* 670d234 2023-04-30 | New commit [shree]
+* db4905b 2023-04-30 | First Commit [shree]
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git checkout greet
+Switched to branch &apos;greet&apos;
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git merge master
+Merge made by the &apos;ort&apos; strategy.
+ README | 1 <font color="#4E9A06">+</font>
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git hist --all --graph
+*   052537c 2023-04-30 | Merge branch &apos;master&apos; into greet (HEAD -&gt; greet) [shree]
+<font color="#CC0000">|</font><font color="#4E9A06">\</font>  
+<font color="#CC0000">|</font> * f56dcb1 2023-04-30 | added README (master) [shree]
+* <font color="#4E9A06">|</font> 75504f0 2023-04-30 | Added python script [shree]
+* <font color="#4E9A06">|</font> a5548e6 2023-04-30 | now hello uses Greeter [shree]
+* <font color="#4E9A06">|</font> 84e6931 2023-04-30 | Added class [shree]
+<font color="#4E9A06">|/</font>  
+* 8ceb0d6 2023-04-30 | Moved it [shree]
+* 75c4bfc 2023-04-30 | Adds an author and email comment [shree]
+* 59da015 2023-04-30 | Added a comment (tag: v1) [shree]
+* fc0d96e 2023-04-30 | Added a default value (tag: v1-beta) [shree]
+* 670d234 2023-04-30 | New commit [shree]
+* db4905b 2023-04-30 | First Commit [shree]
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git checkout master
+Switched to branch &apos;master&apos;
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ nano lib/hello.rb
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git add lib/hello.rb
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git commit -m &quot;made the code fun and interactive&quot;
+[master 5fb7036] made the code fun and interactive
+ 1 file changed, 3 insertions(+), 4 deletions(-)
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git hist --all
+* 5fb7036 2023-04-30 | made the code fun and interactive (HEAD -&gt; master) [shree]
+<font color="#CC0000">|</font> *   052537c 2023-04-30 | Merge branch &apos;master&apos; into greet (greet) [shree]
+<font color="#CC0000">|</font> <font color="#4E9A06">|</font><font color="#CC0000">\</font>  
+<font color="#CC0000">|</font> <font color="#4E9A06">|</font><font color="#CC0000">/</font>  
+<font color="#CC0000">|/</font><font color="#4E9A06">|</font>   
+* <font color="#4E9A06">|</font> f56dcb1 2023-04-30 | added README [shree]
+<font color="#C4A000">|</font> * 75504f0 2023-04-30 | Added python script [shree]
+<font color="#C4A000">|</font> * a5548e6 2023-04-30 | now hello uses Greeter [shree]
+<font color="#C4A000">|</font> * 84e6931 2023-04-30 | Added class [shree]
+<font color="#C4A000">|/</font>  
+* 8ceb0d6 2023-04-30 | Moved it [shree]
+* 75c4bfc 2023-04-30 | Adds an author and email comment [shree]
+* 59da015 2023-04-30 | Added a comment (tag: v1) [shree]
+* fc0d96e 2023-04-30 | Added a default value (tag: v1-beta) [shree]
+* 670d234 2023-04-30 | New commit [shree]
+* db4905b 2023-04-30 | First Commit [shree]
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git checkout greet; git merge master
+Switched to branch &apos;greet&apos;
+Auto-merging lib/hello.rb
+CONFLICT (content): Merge conflict in lib/hello.rb
+Automatic merge failed; fix conflicts and then commit the result.
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ nano lib/hello.rb
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git add -A
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git status
+On branch greet
+All conflicts fixed but you are still merging.
+  (use &quot;git commit&quot; to conclude merge)
+
+Changes to be committed:
+	<font color="#4E9A06">modified:   lib/hello.rb</font>
+
+<font color="#4E9A06"><b>shree@shree</b></font>:<font color="#3465A4"><b>work/hello</b></font>$ git commit -m &quot;merged conflict&quot;
+</pre>
+</body>
