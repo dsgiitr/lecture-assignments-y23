@@ -1,3 +1,0 @@
-polo(){
-    cd curr
-}
