@@ -120,11 +120,6 @@ $$
 \sigma^2=E[(\theta-posterior\_mean)^2∣x]
 $$
 
-$$
-E[\theta^2∣x]=∫\theta^2⋅posterior(\theta∣x)dθ \newline E[\theta∣x]=∫\theta⋅posterior(\theta∣x)dθ \newline posterior(\theta∣x)=\frac {likelihood(\theta)⋅prior(\theta)
-} {P(x)}
-
-$$
 
 $$
 \sigma^2=(prior\_var*likelihood\_var)/(prior\_var+likelihood\_var)
@@ -167,10 +162,6 @@ So,
 $$
 posterior(\theta)\thicksim N(5.9,0.9)
 $$
-
-Graphing Prior and Posterior we get::
-
-![Untitled](Assignment%202A%20787c35a52f884799850a3fb1b31591b4/Untitled.png)
 
 We can see that as n increases, the variance in the posterior decreases, so we get more certain (confident) in our answer. Also, as n increases, the weight given to the sample mean also increases, that means we tend to believe our value is closer to the sample mean than the prior mean. We get x=6 4 times in a row and the distribution tends towards 6 more than it is towards the prior mean 5.
 
