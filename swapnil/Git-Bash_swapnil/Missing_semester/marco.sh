@@ -1,3 +1,0 @@
-marco(){
-    export curr=$(pwd)
-}

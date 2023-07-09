@@ -1,1 +1,0 @@
-The error was using magic numbers
